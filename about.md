@@ -18,7 +18,7 @@ Businesses from startup through to blue chip. Clients tend to come to us when th
 
 ## Practice lead
 
-Jamie Skella. Based in Braddon, ACT, Australia. Working globally.
+Jamie Skella. Based in South Australia. Working globally.
 
 ## Selected reference
 

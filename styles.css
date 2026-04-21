@@ -277,6 +277,10 @@ header.site .logo img {
   max-width: 52rem;
 }
 
+.hero--continued {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
 .hero h1 {
   margin: 0;
   font-size: var(--step-3);
@@ -321,6 +325,13 @@ header.site .logo img {
   border-top: 1px solid var(--rule);
 }
 
+/* When the clients strip appears early (between hero paragraphs), tighten the rhythm */
+.clients--early {
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+  padding-top: clamp(1.5rem, 2.5vw, 2rem);
+  padding-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
 .clients__label {
   margin: 0 0 1.25rem;
   font-size: 0.75rem;
@@ -346,9 +357,17 @@ header.site .logo img {
   transition: opacity 0.2s var(--ease);
 }
 
+/* Square marks (e.g. AFL) need an optical size boost to balance wordmarks */
+.clients__row img[alt="AFL"] {
+  height: 34px;
+}
+
 @media (min-width: 48rem) {
   .clients__row img {
     height: 26px;
+  }
+  .clients__row img[alt="AFL"] {
+    height: 42px;
   }
 }
 
