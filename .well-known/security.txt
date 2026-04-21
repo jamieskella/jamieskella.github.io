@@ -1,0 +1,5 @@
+# Skella & Co — security contact
+Contact: https://skella.com.au/#contact
+Preferred-Languages: en
+Canonical: https://skella.com.au/.well-known/security.txt
+Expires: 2027-04-21T00:00:00.000Z

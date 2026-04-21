@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="499.99994" height="174.17885" viewBox="0 0 374.99996 130.63413">
+  <g transform="translate(-685.43534 -624.93437)">
+    <use xlink:href="#a" width="100%" height="100%" x="734.43738" y="291.25659" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="814.69843" y="291.25659" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="813.14642" y="371.94659" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="817.51343" y="458.5466" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="1067.0068" y="384.8627" fill="#eb6147" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="1074.0538" y="489.97269" fill="#eb6147" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="990.9729" y="291.25659" fill="#eb6147" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#a" width="100%" height="100%" x="1071.2339" y="291.25659" fill="#eb6147" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#b" width="100%" height="100%" x="996.33588" y="801.05548" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <path fill="#e1000a" d="M1040.3379 753.66183h20.0974V629.57224h-20.0974zm-209.37554-51.11996 15.71738-35.5572 15.35657 35.5572zm-101.15776 0 15.71737-35.5572 15.35657 35.5572zm231.792 13.75912-44.00852-90.64513-23.60176 101.77609-44.00852-95.953-2.8858-6.54458-2.98887 6.4931-48.28571 102.6006-46.99739-102.54915-2.8858-6.54455-2.98887 6.4931-55.50019 118.00875-2.00983 4.27719h21.69508l.82451-1.85522 13.70767-31.1254h47.15187l13.34686 31.1254.82452 1.85522h25.3023l.82452-1.85522 13.70757-31.1254h47.152l13.39841 31.1254.82452 1.85522h21.79808-.0528.3087l16.59347-76.01004 38.9583 77.86514 38.90688-78.89572 16.5933 77.04062h19.1185l-30.5071-128.0061zm0 0"/>
+    <use xlink:href="#c" width="100%" height="100%" x="45.738602" y="124.5554" fill="#fff" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#c" width="100%" height="100%" x="46.9776" y="124.5554" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#c" width="100%" height="100%" x="48.216599" y="124.5554" fill="#172e68" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#d" width="100%" height="100%" x="1067.3878" y="66.892303" fill="#171714" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+    <use xlink:href="#d" width="100%" height="100%" x="1115.2712" y="66.892303" fill="#171714" transform="translate(-2006.0597 -1586.2408) scale(3.29806)"/>
+  </g>
+</svg>

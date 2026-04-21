@@ -6,8 +6,7 @@
 <title>Terms — Skella &amp; Co</title>
 <link rel="canonical" href="https://skella.com.au/terms/">
 <meta name="description" content="Terms of use for skella.com.au. Plain language, not legalese.">
-<meta name="theme-color" content="#5900C1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAFAFB">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
@@ -15,32 +14,23 @@
 <link rel="preload" href="/fonts/soehne-buch.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 
-<script>
-(function() {
-  try {
-    var stored = localStorage.getItem('theme');
-    if (stored === 'dark' || stored === 'light') {
-      document.documentElement.setAttribute('data-theme', stored);
-    }
-  } catch (e) {}
-})();
-</script>
-
 <script defer data-domain="skella.com.au" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="shell shell--narrow">
 
   <header class="site rise rise-1">
     <a class="logo" href="/" aria-label="Skella &amp; Co home">
-      <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co" data-logo>
+      <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co">
     </a>
-    <button class="theme-toggle" type="button" aria-label="Toggle colour scheme" data-theme-toggle>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <span data-theme-label>Dark</span>
-    </button>
+    <nav class="header-controls" aria-label="Site controls">
+    </nav>
   </header>
+
+  <main id="main">
 
   <article class="legal rise rise-2">
     <h1>Terms</h1>
@@ -50,7 +40,7 @@
 
     <h2>Content</h2>
     <p>The writing and imagery on this site is mine unless stated otherwise. You're welcome to quote short passages with attribution and a link back. For anything longer, or for reposting full essays, please get in touch first.</p>
-    <p>Third-party logos on this site (AMD, Western Digital, Telstra, AAMI, Westpac, and others) remain the trademarks of their respective owners. They appear here only as factual reference to past work and do not imply endorsement of Skella &amp; Co by those organisations.</p>
+    <p>Third-party logos on this site (AMD, Western Digital, Telstra, AAMI, AFL, and others) remain the trademarks of their respective owners. They appear here only as factual reference to past work and do not imply endorsement of Skella &amp; Co by those organisations.</p>
 
     <h2>Advice and information</h2>
     <p>Nothing on this site is formal advice. Essays and notes reflect my personal views on emerging technology, strategy, and the way the world is changing. Reasonable people will disagree with some of it. Check specifics with a qualified advisor before making business, legal, financial, or technical decisions on the back of anything you read here.</p>
@@ -65,7 +55,7 @@
     <p>The site is provided as-is. I do my best to keep it working and accurate, but I offer no warranty that it will be available without interruption, free of bugs, or suitable for any particular purpose. To the extent permitted by Australian Consumer Law, I'm not liable for any indirect or consequential loss from using this site.</p>
 
     <h2>Jurisdiction</h2>
-    <p>These terms are governed by the law of the Australian Capital Territory. If you and I ever need to resolve a dispute about the site itself, we'll do it in an ACT court.</p>
+    <p>These terms are governed by the law of South Australia. If you and I ever need to resolve a dispute about the site itself, we'll do it in a South Australian court.</p>
 
     <h2>Contact</h2>
     <p>If any of this is unclear, or you'd like to discuss a specific use of the site's content, email me. Address is on the <a href="/">home page</a>.</p>
@@ -76,35 +66,9 @@
     </div>
   </article>
 
-</div>
+  </main>
 
-<script>
-(function() {
-  var root = document.documentElement;
-  var btn = document.querySelector('[data-theme-toggle]');
-  var label = document.querySelector('[data-theme-label]');
-  function currentTheme() {
-    var stored = null;
-    try { stored = localStorage.getItem('theme'); } catch (e) {}
-    if (stored === 'dark' || stored === 'light') return stored;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function applyLabel() { if (label) label.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark'; }
-  function applyLogo() {
-    var img = document.querySelector('[data-logo]');
-    if (!img) return;
-    img.setAttribute('src', currentTheme() === 'dark' ? '/skella-co-logo-310px-white.png' : '/skella-co-logo-310px.png');
-  }
-  applyLabel(); applyLogo();
-  if (btn) btn.addEventListener('click', function() {
-    var next = currentTheme() === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    applyLabel(); applyLogo();
-  });
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() { applyLabel(); applyLogo(); });
-})();
-</script>
+</div>
 
 </body>
 </html>

@@ -7,20 +7,17 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://skella.com.au/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://skella.com.au/about.ja.md"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://skella.com.au/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://skella.com.au/"/>
   </url>
   <url>
-    <loc>https://skella.com.au/about.md</loc>
+    <loc>https://skella.com.au/ja/</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://skella.com.au/about.ja.md</loc>
-    <lastmod>2026-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://skella.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://skella.com.au/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://skella.com.au/"/>
   </url>
   <url>
     <loc>https://skella.com.au/writing/</loc>

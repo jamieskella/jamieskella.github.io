@@ -2,14 +2,16 @@
 
 > The independent practice of Jamie Skella. Emerging technology strategy, holistic experience design, and go-to-market consultancy for the agentic era.
 
-Skella & Co helps organisations decide which systems to deploy, what they should optimise for, and who operates them. Jamie is a World Economic Forum Technology Pioneer Award winner with twenty years of product and experience leadership across AMD, Western Digital, Telstra, AAMI, Westpac, and venture-backed startups.
+Skella & Co helps organisations decide which systems to deploy, what they should optimise for, and who operates them. Jamie is a World Economic Forum Technology Pioneer Award winner with twenty years of product and experience leadership across AMD, Western Digital, Telstra, AAMI, AFL, and venture-backed startups. Based in South Australia, working globally.
 
 ## Key pages
 
 - [Home](https://skella.com.au/): Summary of practice, credentials, and contact.
 - [About (Markdown)](https://skella.com.au/about.md): Machine-readable practice summary.
-- [About (Japanese)](https://skella.com.au/about.ja.md): Japanese summary.
+- [About (Japanese)](https://skella.com.au/about.ja.md): Machine-readable Japanese summary.
+- [Japanese home page](https://skella.com.au/ja/): Japanese version of the home page.
 - [Writing](https://skella.com.au/writing/): Essays on agentic systems and emerging technology.
+- [RSS feed](https://skella.com.au/feed.xml): Subscribe to new writing.
 
 ## Recent essays
 

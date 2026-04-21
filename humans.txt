@@ -1,0 +1,16 @@
+/* TEAM */
+  Principal: Jamie Skella
+  Contact: hello [at] skella.com.au
+  From: South Australia
+
+/* THANKS */
+  To the open web, the people who still publish under their own name,
+  and every reader who emails back.
+
+/* SITE */
+  Last update: 2026-04-21
+  Language: English (en-AU), 日本語 (ja)
+  Doctype: HTML5
+  Components: static HTML, GSAP, SplitType
+  Hosting: GitHub Pages, Cloudflare DNS
+  Fonts: Söhne

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Skella &amp; Co — Writing</title>
+    <link>https://skella.com.au/writing/</link>
+    <atom:link href="https://skella.com.au/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Essays by Jamie Skella on agentic systems, emerging technology, and the decisions leaders face next.</description>
+    <language>en-AU</language>
+    <copyright>© 2026 Skella &amp; Co</copyright>
+    <managingEditor>hello@skella.com.au (Jamie Skella)</managingEditor>
+    <webMaster>hello@skella.com.au (Jamie Skella)</webMaster>
+    <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0930</lastBuildDate>
+    <pubDate>Tue, 21 Apr 2026 00:00:00 +0930</pubDate>
+    <ttl>1440</ttl>
+    <image>
+      <url>https://skella.com.au/skella-co-logo-310px.png</url>
+      <title>Skella &amp; Co — Writing</title>
+      <link>https://skella.com.au/writing/</link>
+    </image>
+
+    <item>
+      <title>The agentic org chart is two people deep</title>
+      <link>https://skella.com.au/writing/agentic-org-chart-two-people-deep/</link>
+      <guid isPermaLink="true">https://skella.com.au/writing/agentic-org-chart-two-people-deep/</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0930</pubDate>
+      <dc:creator>Jamie Skella</dc:creator>
+      <category>Agentic systems</category>
+      <description>Most companies are still drawing the wrong org chart for work that has already changed. What replaces it is smaller, faster, and unsettling to middle management for a reason.</description>
+    </item>
+
+    <item>
+      <title>Strategy is what's left when code and design become free</title>
+      <link>https://skella.com.au/writing/strategy-when-code-and-design-become-free/</link>
+      <guid isPermaLink="true">https://skella.com.au/writing/strategy-when-code-and-design-become-free/</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0930</pubDate>
+      <dc:creator>Jamie Skella</dc:creator>
+      <category>Strategy</category>
+      <description>When the cost of making anything collapses, the value moves to knowing what's worth making. That is the entire argument for strategy as a first-class discipline again.</description>
+    </item>
+
+  </channel>
+</rss>
