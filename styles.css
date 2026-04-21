@@ -401,7 +401,13 @@ header.site .logo img {
   }
 }
 
-/* Western Digital and Telstra wordmarks sit optically high at shared baseline; nudge down */
+/* Optical alignment: asset bounding boxes don't match visual baselines.
+   AMD and AAMI sit low; Western Digital and Telstra sit high. */
+.clients__row img.clients__row-img--amd,
+.clients__row img.clients__row-img--aami {
+  transform: translateY(-2px);
+}
+
 .clients__row img.clients__row-img--wd,
 .clients__row img.clients__row-img--telstra {
   transform: translateY(2px);
