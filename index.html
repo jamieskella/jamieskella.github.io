@@ -6,9 +6,10 @@
 
 <title>Skella &amp; Co — Strategy for agentic systems and emerging technology</title>
 <link rel="canonical" href="https://skella.com.au/">
-<meta name="description" content="Skella &amp; Co designs the strategy behind agentic systems and emerging technology — helping organisations decide which systems to deploy, what they should optimise for, and how to operate them.">
+<meta name="description" content="Skella &amp; Co designs the strategy behind agentic systems and emerging technology. Helping organisations decide which systems to deploy, what they should optimise for, and how to operate them.">
 <meta name="author" content="Jamie Skella">
-<meta name="theme-color" content="#5900C1">
+<meta name="theme-color" content="#5900C1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
 
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -37,6 +38,21 @@
 <link rel="alternate" type="text/markdown" href="/about.md" title="About Skella &amp; Co (Markdown)">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 
+<!-- Language alternates -->
+<link rel="alternate" hreflang="en-AU" href="https://skella.com.au/">
+<link rel="alternate" hreflang="ja" href="https://skella.com.au/about.ja.md">
+<link rel="alternate" hreflang="x-default" href="https://skella.com.au/">
+
+<!-- Preload critical webfont -->
+<link rel="preload" href="/fonts/soehne-leicht.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/soehne-buch.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="/styles.css">
+
+<!-- Reveal animation libraries (loaded async with fallback) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js" defer></script>
+
 <!-- Structured data -->
 <script type="application/ld+json">
 {
@@ -53,8 +69,10 @@
       "worksFor": { "@id": "https://skella.com.au/#org" },
       "sameAs": [
         "https://www.linkedin.com/in/jamieskella/",
-        "https://github.com/jamieskella"
-      ]
+        "https://github.com/jamieskella",
+        "https://x.com/jamieskella"
+      ],
+      "award": "World Economic Forum Technology Pioneer"
     },
     {
       "@type": "ProfessionalService",
@@ -86,175 +104,296 @@
 }
 </script>
 
-<script type="text/javascript" src="//use.typekit.net/jhf6mtt.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<style type="text/css">
-@font-face {
-    font-family: 'SourceSansPro-ExtraLight';
-    src: url('SourceSansPro-ExtraLight.eot');
-    src: url('SourceSansPro-ExtraLight.eot?#iefix') format('embedded-opentype'),
-         url('SourceSansPro-ExtraLight.woff') format('woff'),
-         url('SourceSansPro-ExtraLight.ttf') format('truetype'),
-         url('SourceSansPro-ExtraLight.svg#SourceSansPro-ExtraLight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-@font-face {
-font-family: 'SourceSansPro-ExtraLight';
-src: url('SourceSansPro-ExtraLight.svg#SourceSansPro-ExtraLight') format('svg');
-}
-}
-html {
-	background-color: #f9f9fa;
-}
-h1 {
-	font-family: "SourceSansPro-ExtraLight",sans-serif;
-	color: #5900C1;
-	font-size: 30pt;
-	font-weight: 200;
-}
-p {
-	font-family: "SourceSansPro-ExtraLight",sans-serif;
-	color: #6D6D6D;
-	font-size: 18pt;
-	font-weight: 200;
-}
-h3 {
-	font-family: "SourceSansPro-ExtraLight",sans-serif;
-	color: #6D6D6D;
-	font-size: 12pt;
-	font-weight: 200;
-  text-align: right;
-  margin-top: -20px;
-}
-h1 a {
-	color: #5900C1;
-	text-decoration: none;
-	border-bottom: 1px solid;
-}
-p a {
-	color: #6D6D6D;
-	text-decoration: none;
-	border-bottom: 1px solid;
-}
-.content {
-	max-width: 800px;
-	padding-left: 15%;
-	padding-right: 15%;
-	margin: 60pt auto 60pt auto;
-}
-@media only screen
-and (min-width : 1400px) {
-.content {
-	max-width: 1000px;
-}
-h1 {
-	font-size: 36pt;
-}
-p {
-	font-size: 24pt;
-}
-}
-@media only screen
-and (max-width : 760px) {
-.content {
-	max-width: 500px;
-}
-h1 {
-	font-size: 24pt;
-}
-p {
-	font-size: 15pt;
-}
-}
- @-webkit-keyframes fadeIn {
-from {
-opacity:0;
-}
-to {
-opacity:1;
-}
-}
-@-moz-keyframes fadeIn {
-from {
-opacity:0;
-}
-to {
-opacity:1;
-}
-}
-@keyframes fadeIn {
-from {
-opacity:0;
-}
-to {
-opacity:1;
-}
-}
-.fadein {
-	opacity: 0;
-	-webkit-animation: fadeIn ease-in 1;
-	-moz-animation: fadeIn ease-in 1;
-	animation: fadeIn ease-in 1;
-	-webkit-animation-fill-mode: forwards;
-	-moz-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
-	-webkit-animation-duration: 0.7s;
-	-moz-animation-duration: 0.7s;
-	animation-duration: 0.7s;
-}
-.fadein.textone {
-	-webkit-animation-delay: 0.4s;
-	-moz-animation-delay: 0.4s;
-	animation-delay: 0.4s;
-}
-.fadein.texttwo {
-	-webkit-animation-delay: 0.6s;
-	-moz-animation-delay: 0.6s;
-	animation-delay: 0.6s;
-}
-.fadein.textthree {
-	-webkit-animation-delay: 0.8s;
-	-moz-animation-delay: 0.8s;
-	animation-delay: 0.8s;
-}
-.fadein.textfour {
-	-webkit-animation-delay: 1s;
-	-moz-animation-delay: 1s;
-	animation-delay: 1s;
-}
-.fadein.textfive {
-	-webkit-animation-delay: 1.2s;
-	-moz-animation-delay: 1.2s;
-	animation-delay: 1.2s;
-}
-</style>
+<!-- Theme bootstrap (runs before paint to prevent flash) -->
+<script>
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.setAttribute('data-theme', stored);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<!-- Plausible (cookieless, privacy-first) -->
+<script defer data-domain="skella.com.au" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-<div class="content">
-  <p class="fadein textone"><img src="skella-co-logo-310px.png" width="155" height="35" alt="Skella &amp; Co"></p>
-  <h1 class="fadein texttwo">Code and design are becoming machine work. The harder question is which systems to deploy, what they should optimise for, and who holds the wheel when they run. I help organisations answer that. I design the strategy behind agentic systems &mdash; the intent, the guardrails, the measurement &mdash; then stay close enough to operate them. My wider brief is the same one I've had for twenty years: read what's emerging, treat change as opportunity, and help leaders make clearer decisions about what to build next.</h1>
-  <p class="fadein textthree">"It was an exceptional experience to have our thinking challenged and extended in directions we had not necessarily thought possible, let alone highly probable and indeed imminent. Jamie Skella combines a deep social consciousness with his gift in technological conceptualisation and execution that gives us confidence in achieving a greater future."
-  <h3 class="fadein textfour">&mdash; Gina Gunn, General Manager, CPA</h3>
-  <p class="fadein textfour"><script type="text/javascript" language="javascript">
-{ coded = "r90aY@iPYyy9.tA0.9D"
-  key = "xmBIYKvkfHqhn9prARsL0F1lSZPuXCzJW5Ewdic7NGyQ6TDe3U8MOVb4atjog2"
-  shift=coded.length
-  link=""
-  for (i=0; i<coded.length; i++) {
-    if (key.indexOf(coded.charAt(i))==-1) {
-      ltr = coded.charAt(i)
-      link += (ltr)
-    }
-    else {     
-      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-      link += (key.charAt(ltr))
-    }
-  }
-document.write("<a href='mailto:"+link+"'>Email Jamie Skella</a>")
-}
-</script><noscript>Sorry, you'll need to enable Javascript to email.</noscript>.</p>
+
+<div class="shell">
+
+  <header class="site rise rise-1">
+    <a class="logo" href="/" aria-label="Skella &amp; Co home">
+      <picture>
+        <source srcset="/skella-co-logo-310px-white.png" media="(prefers-color-scheme: dark)">
+        <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co" data-logo>
+      </picture>
+    </a>
+    <button class="theme-toggle" type="button" aria-label="Toggle colour scheme" data-theme-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <span data-theme-label>Dark</span>
+    </button>
+  </header>
+
+  <section class="hero">
+    <p class="lede" data-reveal="words">
+      Emerging technology strategy, holistic experience design, and go-to-market consultancy for the agentic era. I work behind the curtains with venture-backed startups and high-profile clients to develop ideas and achieve outcomes that power their success on the global stage.
+    </p>
+    <p class="lede" data-reveal="lines" data-reveal-delay="0.3">
+      Code and design are becoming machine work. The harder question is which systems to deploy, what they should optimise for, and who holds the wheel when they run. That is the work. I design the strategy behind agentic systems, set the intent and guardrails, then stay close enough to operate them.
+    </p>
+    <p class="lede" data-reveal="lines" data-reveal-delay="0.2">
+      My brief has been the same one for two decades. Identify change before others, treat that change as opportunity instead of threat, and use it to help leaders decide what to do next.
+    </p>
+    <p class="credentials" data-reveal="fade" data-reveal-delay="0.3">
+      World Economic Forum Technology Pioneer Award winner. Past work with AMD, Western Digital, Telstra, AAMI, and Westpac, alongside award-winning early-stage companies.
+    </p>
+  </section>
+
+  <section class="clients" data-reveal="fade" data-reveal-delay="0.5" aria-labelledby="clients-label">
+    <p class="clients__label" id="clients-label">Selected past clients</p>
+    <div class="clients__row">
+      <img src="/logos/clients/amd.png" alt="AMD" loading="lazy">
+      <img src="/logos/clients/western-digital.png" alt="Western Digital" loading="lazy">
+      <img src="/logos/clients/telstra.png" alt="Telstra" loading="lazy">
+      <img src="/logos/clients/aami.png" alt="AAMI" loading="lazy">
+      <img src="/logos/clients/westpac.png" alt="Westpac" loading="lazy">
+    </div>
+  </section>
+
+  <section class="testimonial" data-reveal="fade" data-reveal-delay="0.7">
+    <blockquote>
+      It was an exceptional experience to have our thinking challenged and extended in directions we had not necessarily thought possible, let alone highly probable and indeed imminent. Jamie Skella combines a deep social consciousness with his gift in technological conceptualisation and execution that gives us confidence in achieving a greater future.
+    </blockquote>
+    <cite>Gina Gunn, General Manager, CPA</cite>
+  </section>
+
+  <section class="ventures" data-reveal="fade" data-reveal-delay="0.9" aria-labelledby="ventures-label">
+    <p class="ventures__label" id="ventures-label">Also built</p>
+    <p class="ventures__hint">Side projects I've shipped and now run quietly in the background.</p>
+    <div class="ventures__row">
+      <a class="venture" href="https://arbiio.com.au/" rel="noopener">
+        <img src="/logos/ventures/arbiio.png" alt="" loading="lazy" aria-hidden="true">
+        <span class="venture__body">
+          <span class="venture__name">Arbiio</span>
+          <span class="venture__desc">Everyday crypto earning for AU</span>
+        </span>
+      </a>
+      <a class="venture" href="https://crayondreaming.com/" rel="noopener">
+        <img src="/logos/ventures/crayondreaming.png" alt="" loading="lazy" aria-hidden="true">
+        <span class="venture__body">
+          <span class="venture__name">Crayon Dreaming</span>
+          <span class="venture__desc">Personalised storybooks for kids</span>
+        </span>
+      </a>
+      <a class="venture" href="https://wccalendar.com/" rel="noopener">
+        <img src="/logos/ventures/wccalendar.svg" alt="" loading="lazy" aria-hidden="true">
+        <span class="venture__body">
+          <span class="venture__name">WC Calendar</span>
+          <span class="venture__desc">Live World Cup 2026 fixtures, your calendar</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="contact" data-reveal="fade" data-reveal-delay="1.1" aria-labelledby="contact-label">
+    <p class="clients__label" id="contact-label">Say hello</p>
+    <div class="contact__row">
+      <button type="button" class="reveal" data-reveal-email>Email Jamie Skella</button>
+      <span aria-hidden="true">·</span>
+      <a href="https://www.linkedin.com/in/jamieskella/" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/jamieskella" rel="noopener">GitHub</a>
+      <a href="https://x.com/jamieskella" rel="noopener">X</a>
+    </div>
+  </section>
+
+  <footer class="site" data-reveal="fade" data-reveal-delay="1.2">
+    <span>© <span data-year>2026</span> Skella &amp; Co</span>
+    <a href="/writing/">Writing</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+  </footer>
+
 </div>
+
+<script>
+/* Reveal controller — GSAP + SplitType */
+(function() {
+  var root = document.documentElement;
+  root.classList.add('reveal-ready');
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function init() {
+    if (typeof gsap === 'undefined' || typeof SplitType === 'undefined') {
+      /* Library failed to load — show everything as plain fade via existing rise classes */
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        el.style.opacity = '1';
+      });
+      return;
+    }
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        gsap.set(el, { opacity: 1 });
+      });
+      return;
+    }
+
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    /* Header logo + theme toggle — subtle rise */
+    tl.fromTo('header.site > *',
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 },
+      0
+    );
+
+    document.querySelectorAll('[data-reveal]').forEach(function(el) {
+      var type = el.getAttribute('data-reveal');
+      var delay = parseFloat(el.getAttribute('data-reveal-delay') || '0');
+      gsap.set(el, { opacity: 1 });
+
+      if (type === 'words') {
+        var split = new SplitType(el, { types: 'words' });
+        tl.fromTo(split.words,
+          { opacity: 0, y: '0.4em' },
+          { opacity: 1, y: 0, duration: 0.7, stagger: 0.025 },
+          delay
+        );
+      } else if (type === 'lines') {
+        var splitL = new SplitType(el, { types: 'lines' });
+        tl.fromTo(splitL.lines,
+          { opacity: 0, y: '0.4em' },
+          { opacity: 1, y: 0, duration: 0.75, stagger: 0.09 },
+          delay
+        );
+      } else {
+        tl.fromTo(el,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          delay
+        );
+      }
+    });
+  }
+
+  /* Wait for both libraries + fonts */
+  function whenReady(cb) {
+    var ready = false;
+    function attempt() {
+      if (ready) return;
+      if (typeof gsap !== 'undefined' && typeof SplitType !== 'undefined') {
+        ready = true;
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(cb);
+        } else {
+          cb();
+        }
+      }
+    }
+    var iv = setInterval(function() {
+      attempt();
+      if (ready) clearInterval(iv);
+    }, 50);
+    /* Fallback after 2s — proceed anyway */
+    setTimeout(function() {
+      if (!ready) {
+        ready = true;
+        clearInterval(iv);
+        cb();
+      }
+    }, 2000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { whenReady(init); });
+  } else {
+    whenReady(init);
+  }
+})();
+</script>
+
+<script>
+(function() {
+  /* Theme toggle */
+  var root = document.documentElement;
+  var btn = document.querySelector('[data-theme-toggle]');
+  var label = document.querySelector('[data-theme-label]');
+
+  function currentTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyLabel() {
+    if (!label) return;
+    label.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark';
+  }
+
+  applyLabel();
+
+  function applyLogo() {
+    var img = document.querySelector('[data-logo]');
+    if (!img) return;
+    var whiteSrc = '/skella-co-logo-310px-white.png';
+    var colourSrc = '/skella-co-logo-310px.png';
+    var target = currentTheme() === 'dark' ? whiteSrc : colourSrc;
+    if (img.getAttribute('src') !== target) img.setAttribute('src', target);
+  }
+
+  applyLogo();
+
+  if (btn) {
+    btn.addEventListener('click', function() {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      applyLabel();
+      applyLogo();
+    });
+  }
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+    applyLabel();
+    applyLogo();
+  });
+
+  /* Current year */
+  var y = document.querySelector('[data-year]');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* Reveal email on click (keeps obfuscation until interaction) */
+  var revealBtn = document.querySelector('[data-reveal-email]');
+  if (revealBtn) {
+    revealBtn.addEventListener('click', function() {
+      var coded = "r90aY@iPYyy9.tA0.9D";
+      var key = "xmBIYKvkfHqhn9prARsL0F1lSZPuXCzJW5Ewdic7NGyQ6TDe3U8MOVb4atjog2";
+      var shift = coded.length;
+      var link = "";
+      for (var i = 0; i < coded.length; i++) {
+        if (key.indexOf(coded.charAt(i)) === -1) {
+          link += coded.charAt(i);
+        } else {
+          var ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length;
+          link += key.charAt(ltr);
+        }
+      }
+      var a = document.createElement('a');
+      a.href = 'mailto:' + link;
+      a.textContent = link;
+      revealBtn.replaceWith(a);
+      /* Try to open the mail client immediately */
+      window.location.href = 'mailto:' + link;
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

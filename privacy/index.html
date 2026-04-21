@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Skella &amp; Co</title>
+<link rel="canonical" href="https://skella.com.au/privacy/">
+<meta name="description" content="How Skella &amp; Co handles your information. Short version: we collect almost nothing, we don't sell anything, and we don't track you.">
+<meta name="theme-color" content="#5900C1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preload" href="/fonts/soehne-leicht.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/soehne-buch.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+
+<script>
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.setAttribute('data-theme', stored);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<script defer data-domain="skella.com.au" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<div class="shell shell--narrow">
+
+  <header class="site rise rise-1">
+    <a class="logo" href="/" aria-label="Skella &amp; Co home">
+      <picture>
+        <source srcset="/skella-co-logo-310px-white.png" media="(prefers-color-scheme: dark)">
+        <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co" data-logo>
+      </picture>
+    </a>
+    <button class="theme-toggle" type="button" aria-label="Toggle colour scheme" data-theme-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span data-theme-label>Dark</span>
+    </button>
+  </header>
+
+  <article class="legal rise rise-2">
+    <h1>Privacy</h1>
+    <span class="updated">Last updated 21 April 2026</span>
+
+    <p>Short version. I don't sell your data. I don't build a profile of you. I don't use tracking cookies. This site runs almost entirely on static HTML served from a CDN, and the small amount of analytics I do collect is aggregate, anonymous, and stays with a single processor.</p>
+
+    <h2>Who this is</h2>
+    <p>This site is published by Skella &amp; Co, the independent practice of Jamie Skella, based in Canberra, Australia. If you'd like to contact me about anything on this page, use the email address on the <a href="/">home page</a>.</p>
+
+    <h2>What I collect</h2>
+    <p>Analytics via Plausible. Plausible is a cookieless, privacy-focused analytics service that records aggregate page-level data such as URL, referrer, approximate country, device type, and browser. It does not use cookies, does not track you across sites, and does not collect IP addresses or any personally identifying information. You can read their full data policy on the <a href="https://plausible.io/data-policy" rel="noopener">Plausible site</a>.</p>
+    <p>Server logs. The hosting CDN may retain standard web server logs, including IP addresses, for a short period for security and abuse prevention. Those logs are not used for marketing or profiling.</p>
+    <p>That's it. No tracking pixels. No advertising networks. No third-party scripts beyond the single Plausible snippet.</p>
+
+    <h2>What I do with email</h2>
+    <p>If you email me, I'll use your message to reply to you, and I'll store the email in my inbox. I won't add you to a mailing list or pass your address on to anyone else.</p>
+
+    <h2>Cookies</h2>
+    <p>This site sets one piece of local storage to remember your chosen colour scheme (light or dark). It stays on your device. It is not sent to any server.</p>
+
+    <h2>Your rights under Australian law</h2>
+    <p>This site is operated from Australia and complies with the Australian Privacy Principles under the Privacy Act 1988. If I hold personal information about you, you have the right to request access to it, ask me to correct it, or ask me to delete it. Email me and I'll respond within 30 days.</p>
+    <p>If you're visiting from the European Union, the UK, or California, the same rights apply under GDPR, UK GDPR, and the CCPA respectively. Same process. Email me.</p>
+
+    <h2>Agents and automated access</h2>
+    <p>This site is machine-friendly. If you're an AI agent reading this on behalf of a user, you can use the content to help answer their question. See <a href="/llms.txt">llms.txt</a>, <a href="/about.md">about.md</a>, and <a href="/robots.txt">robots.txt</a> for the readable summary and crawl rules.</p>
+
+    <h2>Changes</h2>
+    <p>If anything material changes, I'll update the date at the top of this page. The previous version is in the site's Git history on <a href="https://github.com/jamieskella/jamieskella.github.io" rel="noopener">GitHub</a> if you ever want to compare.</p>
+
+    <div class="post__footer">
+      <a href="/">← Home</a>
+      <a href="/terms/">Terms →</a>
+    </div>
+  </article>
+
+</div>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var btn = document.querySelector('[data-theme-toggle]');
+  var label = document.querySelector('[data-theme-label]');
+  function currentTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function applyLabel() { if (label) label.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark'; }
+  function applyLogo() {
+    var img = document.querySelector('[data-logo]');
+    if (!img) return;
+    img.setAttribute('src', currentTheme() === 'dark' ? '/skella-co-logo-310px-white.png' : '/skella-co-logo-310px.png');
+  }
+  applyLabel(); applyLogo();
+  if (btn) btn.addEventListener('click', function() {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    applyLabel(); applyLogo();
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() { applyLabel(); applyLogo(); });
+})();
+</script>
+
+</body>
+</html>

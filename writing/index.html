@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Skella &amp; Co</title>
+<link rel="canonical" href="https://skella.com.au/writing/">
+<meta name="description" content="Essays and notes from Jamie Skella on agentic systems, emerging technology, and the decisions leaders face next.">
+<meta name="theme-color" content="#5900C1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preload" href="/fonts/soehne-leicht.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/soehne-buch.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Writing — Skella &amp; Co">
+<meta property="og:description" content="Essays and notes from Jamie Skella on agentic systems and emerging technology.">
+<meta property="og:url" content="https://skella.com.au/writing/">
+<meta property="og:image" content="https://skella.com.au/skella-co-og-1200x630.png">
+
+<script>
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.setAttribute('data-theme', stored);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<script defer data-domain="skella.com.au" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<div class="shell shell--narrow">
+
+  <header class="site rise rise-1">
+    <a class="logo" href="/" aria-label="Skella &amp; Co home">
+      <picture>
+        <source srcset="/skella-co-logo-310px-white.png" media="(prefers-color-scheme: dark)">
+        <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co" data-logo>
+      </picture>
+    </a>
+    <button class="theme-toggle" type="button" aria-label="Toggle colour scheme" data-theme-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span data-theme-label>Dark</span>
+    </button>
+  </header>
+
+  <section class="writing-index rise rise-2">
+    <h1>Writing</h1>
+    <p class="lede-sub">Notes on agentic systems, emerging technology, and the decisions leaders face next. Longer pieces live at my <a href="https://jamie.bearblog.dev/blog/" rel="noopener">archive</a> and on <a href="https://thenextnow.substack.com/" rel="noopener">The Next Now</a>.</p>
+
+    <ol class="post-list">
+      <li>
+        <a href="/writing/agentic-org-chart-two-people-deep/">
+          <span class="post-list__date">April 2026</span>
+          <span class="post-list__title">The agentic org chart is two people deep</span>
+          <span class="post-list__dek">Most companies are still drawing the wrong org chart for work that has already changed. What replaces it is smaller, faster, and unsettling to middle management for a reason.</span>
+        </a>
+      </li>
+      <li>
+        <a href="/writing/strategy-when-code-and-design-become-free/">
+          <span class="post-list__date">April 2026</span>
+          <span class="post-list__title">Strategy is what's left when code and design become free</span>
+          <span class="post-list__dek">When the cost of making anything collapses, the value moves to knowing what's worth making. That is the entire argument for strategy as a first-class discipline again.</span>
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="site rise rise-3">
+    <a href="/">Home</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var btn = document.querySelector('[data-theme-toggle]');
+  var label = document.querySelector('[data-theme-label]');
+  function currentTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function applyLabel() { if (label) label.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark'; }
+  function applyLogo() {
+    var img = document.querySelector('[data-logo]');
+    if (!img) return;
+    img.setAttribute('src', currentTheme() === 'dark' ? '/skella-co-logo-310px-white.png' : '/skella-co-logo-310px.png');
+  }
+  applyLabel(); applyLogo();
+  if (btn) btn.addEventListener('click', function() {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    applyLabel(); applyLogo();
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() { applyLabel(); applyLogo(); });
+})();
+</script>
+
+</body>
+</html>

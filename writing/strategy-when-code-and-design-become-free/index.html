@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strategy is what's left when code and design become free — Skella &amp; Co</title>
+<link rel="canonical" href="https://skella.com.au/writing/strategy-when-code-and-design-become-free/">
+<meta name="description" content="When the cost of making anything collapses, the value moves to knowing what's worth making. That is the entire argument for strategy as a first-class discipline again.">
+<meta name="author" content="Jamie Skella">
+<meta name="theme-color" content="#5900C1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preload" href="/fonts/soehne-leicht.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/soehne-buch.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Strategy is what's left when code and design become free">
+<meta property="og:description" content="When the cost of making anything collapses, the value moves to knowing what's worth making. That is the entire argument for strategy as a first-class discipline again.">
+<meta property="og:url" content="https://skella.com.au/writing/strategy-when-code-and-design-become-free/">
+<meta property="og:image" content="https://skella.com.au/skella-co-og-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Strategy is what's left when code and design become free",
+  "description": "When the cost of making anything collapses, the value moves to knowing what's worth making. That is the entire argument for strategy as a first-class discipline again.",
+  "author": { "@type": "Person", "name": "Jamie Skella", "url": "https://skella.com.au/" },
+  "publisher": { "@type": "Organization", "name": "Skella & Co", "logo": { "@type": "ImageObject", "url": "https://skella.com.au/skella-co-logo-310px.png" } },
+  "datePublished": "2026-04-21",
+  "mainEntityOfPage": "https://skella.com.au/writing/strategy-when-code-and-design-become-free/"
+}
+</script>
+
+<script>
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.setAttribute('data-theme', stored);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<script defer data-domain="skella.com.au" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<div class="shell shell--narrow">
+
+  <header class="site rise rise-1">
+    <a class="logo" href="/" aria-label="Skella &amp; Co home">
+      <picture>
+        <source srcset="/skella-co-logo-310px-white.png" media="(prefers-color-scheme: dark)">
+        <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co" data-logo>
+      </picture>
+    </a>
+    <button class="theme-toggle" type="button" aria-label="Toggle colour scheme" data-theme-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span data-theme-label>Dark</span>
+    </button>
+  </header>
+
+  <article class="post rise rise-2">
+    <h1>Strategy is what's left when code and design become free</h1>
+    <p class="post__meta">
+      <span>21 April 2026</span>
+      <span>By Jamie Skella</span>
+    </p>
+    <div class="post__body">
+
+      <p>For most of the last twenty years, the people who got things done ran the show. Engineers, designers, and delivery leads were the ones companies actually needed. Strategy was fine, useful even, but it was always downstream of execution. You could have the best ideas in the room and still lose to someone who shipped faster. The cost of making things kept strategy in its place.</p>
+
+      <p>That constraint is collapsing.</p>
+
+      <p>When a single operator working with AI agents can ship a feature in a day that used to take a squad a quarter, something structural changes. The scarcity moves. Making stops being the hard part, and the question of what to make becomes the thing that determines whether you win or waste a year of agent-hours on the wrong problem.</p>
+
+      <p>I'd argue that's the entire case for strategy as a serious discipline again. Not strategy as a slide deck. Strategy as the actual rate-limiting work.</p>
+
+      <h2>How execution became the measure of everything</h2>
+
+      <p>It's worth being clear about why strategy fell out of fashion, because the reason matters.</p>
+
+      <p>Shipping software was expensive. A product team of ten, running for six months, costs a lot of money and carries real risk. In that environment, velocity is precious. Every week you spend debating priorities is a week you're not building. The teams that figured out how to move fast, cut scope, and ship iteratively were the ones that survived. Everyone else got disrupted or ran out of money.</p>
+
+      <p>Execution culture was the rational response to expensive execution. Getting things done was hard enough that doing it well was a genuine competitive advantage. Companies that hired great engineers and great product managers and gave them room to move won. Companies that spent too much time in strategy retreats lost.</p>
+
+      <p>So the field optimised. Agile methodologies, lean product thinking, two-pizza teams, sprint velocity as a health metric. All of it pointed in the same direction: keep moving, ship small, learn fast, repeat. Good advice. It worked.</p>
+
+      <p>The mistake was assuming the underlying constraint would stay fixed.</p>
+
+      <h2>What changes when making gets cheap</h2>
+
+      <p>Here's a concrete version of what's happening. A year ago, building a new onboarding flow for a product might have taken a front-end engineer two weeks, a designer a week, a PM coordinating throughout, plus QA and a data analyst setting up tracking. Call it six weeks of combined effort across four people.</p>
+
+      <p>Today, a capable operator with access to a good agentic coding system can do a version of that in a day or two. The interface gets built. The copy gets written. The tracking gets instrumented. Still needs review. Still needs human judgement at key points. But the effort-to-output ratio has shifted by an order of magnitude.</p>
+
+      <p>Now consider the question that matters: which onboarding flow should you build? For which users? Solving for which behaviour? Measured how? That question takes the same amount of careful thinking it always did. Probably more, now that you can act on the answer so quickly. A bad answer is no longer corrected slowly through the natural friction of slow execution. A bad answer gets shipped fast, iterated on fast, and compounds fast.</p>
+
+      <p>Speed amplifies everything, including mistakes. The premium on getting the question right goes up.</p>
+
+      <h2>The skills that actually matter now</h2>
+
+      <p>If strategy is the new bottleneck, it's worth being specific about what strategy means in practice. I'd split it into four things.</p>
+
+      <p><strong>Foresight.</strong> The ability to read what's emerging before it's obvious. This is harder than it sounds. Most organisations are good at understanding the present and projecting it forward in a straight line. Genuine foresight means catching the signals that suggest the line is about to bend. Which customer complaints are early warnings of a larger shift? Which competitor move is actually a sign of where the whole market is heading? You can't automate this well. It requires wide reading, intellectual honesty, and a willingness to sit with ambiguity without resolving it prematurely.</p>
+
+      <p><strong>Optionality.</strong> Staying light on commitments until you have enough information to commit well. This is a genuine skill that runs against most organisational instincts. Companies want plans. Boards want roadmaps. Teams want to know what they're building for the next two quarters. The strategist's job is to hold that pressure without over-committing too early, and to know which decisions are easily reversible and which ones aren't. Reversible decisions should be made fast. Irreversible ones deserve more time.</p>
+
+      <p><strong>Judgement.</strong> Deciding what's worth optimising for. This is where most strategy falls apart. Companies confuse activity with direction. They measure what's measurable rather than what matters. They optimise for engagement when they should be optimising for trust, or for short-term conversion when they should be building for long-term retention. Good judgement means naming the thing you're actually trying to achieve, being honest about the trade-offs, and holding that line when the pressure to chase a different metric arrives.</p>
+
+      <p><strong>Measurement design.</strong> Defining what "done" means clearly enough that an agent fleet can work toward it. This one's new, and it's more demanding than it sounds. Agents can optimise hard for whatever metric you give them. If your metric is wrong, they'll optimise hard for the wrong thing, quickly and at scale. The work of defining good success criteria, with the right leading indicators and the right guardrails, is now strategy-level work. It used to sit in analytics teams and get treated as operational. It should sit at the top.</p>
+
+      <h2>What most companies are still doing</h2>
+
+      <p>I've talked to a lot of product leaders over the past year. Most of them are genuinely excited about what AI systems can do. They're using them to accelerate their existing teams. They're shipping faster, which feels good.</p>
+
+      <p>What's harder to see from inside is that shipping faster only helps if you're heading in the right direction. If your strategy is fuzzy, moving faster just gets you to the wrong place sooner. The discipline of knowing which direction to point hasn't improved at the same rate as the speed at which you can move.</p>
+
+      <p>A few companies get this. Anthropic is unusually deliberate about which capabilities to build and which to hold back, and why. That's strategy work at the highest level, and it's what will likely determine their position over the next decade more than any individual product decision. Valve has famously maintained a structure where project selection is the real work, and it's sustained one of the highest revenue-per-employee ratios in the industry for years. These aren't accidents.</p>
+
+      <p>The companies that struggle will be the ones that treat AI as a speed upgrade without asking what they're speeding toward.</p>
+
+      <h2>Execution was the last war</h2>
+
+      <p>I'm not saying execution stops mattering. Ships still need to leave the harbour, and someone has to make sure they do. But "we're great at shipping" is no longer a differentiated position. It's table stakes, the same way "we have electricity" stopped being a selling point once everyone had electricity.</p>
+
+      <p>The question that separates good companies from great ones is shifting back to: what are you building, for whom, and why does it matter? That used to be a question you could afford to answer loosely because the execution constraints kept you honest. You couldn't build everything, so the bad ideas got filtered out by resource scarcity. Take away that constraint and the question gets sharper.</p>
+
+      <p>Most companies are still talking about execution as the differentiator. You hear it constantly: we move fast, we ship, we iterate. That was the right answer for a long time. It was the last war, and the people who won it are proud, reasonably so.</p>
+
+      <p>The next war is about knowing what to build in the first place. And most companies haven't started preparing for it yet.</p>
+
+    </div>
+    <div class="post__footer">
+      <a href="/writing/">← All writing</a>
+      <a href="/">Skella &amp; Co home</a>
+    </div>
+  </article>
+
+</div>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var btn = document.querySelector('[data-theme-toggle]');
+  var label = document.querySelector('[data-theme-label]');
+  function currentTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function applyLabel() { if (label) label.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark'; }
+  function applyLogo() {
+    var img = document.querySelector('[data-logo]');
+    if (!img) return;
+    img.setAttribute('src', currentTheme() === 'dark' ? '/skella-co-logo-310px-white.png' : '/skella-co-logo-310px.png');
+  }
+  applyLabel(); applyLogo();
+  if (btn) btn.addEventListener('click', function() {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    applyLabel(); applyLogo();
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() { applyLabel(); applyLogo(); });
+})();
+</script>
+
+</body>
+</html>
