@@ -298,11 +298,7 @@
     <h1>Writing</h1>
     <p class="lede-sub">Notes on agentic systems, emerging technology, and the decisions leaders face next. Longer pieces also live on <a href="https://thenextnow.substack.com/" rel="noopener">The Next Now</a>. Subscribe via <a href="/feed.xml">RSS</a>.</p>
 
-    <div class="writing-filter" role="search">
-      <label class="writing-filter__search">
-        <span class="writing-filter__search-label">Filter essays</span>
-        <input type="search" id="writing-search" placeholder="Search by title, topic, or year" autocomplete="off">
-      </label>
+    <div class="writing-filter">
       <div class="writing-filter__tags" role="group" aria-label="Filter by tag">
         <button type="button" class="writing-filter__tag is-active" data-tag="all">All</button>
         <button type="button" class="writing-filter__tag" data-tag="agentic-systems">Agentic systems</button>
@@ -563,30 +559,24 @@
 
 <script>
 (function () {
-  var input = document.getElementById('writing-search');
   var list = document.getElementById('post-list');
-  if (!input || !list) return;
+  if (!list) return;
   var items = Array.prototype.slice.call(list.querySelectorAll('li'));
   var tagButtons = Array.prototype.slice.call(document.querySelectorAll('.writing-filter__tag'));
   var emptyMsg = document.querySelector('.writing-filter__empty');
   var activeTag = 'all';
 
   function apply() {
-    var q = (input.value || '').trim().toLowerCase();
     var shown = 0;
     items.forEach(function (li) {
       var tags = (li.getAttribute('data-tags') || '').split(/\s+/);
-      var haystack = li.getAttribute('data-haystack') || '';
-      var matchesTag = activeTag === 'all' || tags.indexOf(activeTag) !== -1;
-      var matchesText = !q || haystack.indexOf(q) !== -1;
-      var show = matchesTag && matchesText;
+      var show = activeTag === 'all' || tags.indexOf(activeTag) !== -1;
       li.hidden = !show;
       if (show) shown++;
     });
     if (emptyMsg) emptyMsg.hidden = shown !== 0;
   }
 
-  input.addEventListener('input', apply);
   tagButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       activeTag = btn.getAttribute('data-tag') || 'all';

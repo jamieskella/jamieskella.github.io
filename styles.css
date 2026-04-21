@@ -980,39 +980,6 @@ footer.site a:hover {
   gap: 1rem;
 }
 
-.writing-filter__search {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.writing-filter__search-label {
-  font-size: 0.78rem;
-  color: var(--soft);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.writing-filter__search input {
-  font: inherit;
-  font-size: var(--step-1);
-  padding: 0.65rem 0.85rem;
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  transition: border-color 0.2s var(--ease);
-}
-
-.writing-filter__search input:focus-visible {
-  outline: none;
-  border-color: var(--brand);
-}
-
-.writing-filter__search input::placeholder {
-  color: var(--soft);
-}
-
 .writing-filter__tags {
   display: flex;
   flex-wrap: wrap;
