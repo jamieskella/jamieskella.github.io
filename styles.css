@@ -269,18 +269,31 @@ header.site .logo img {
 
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--text);
-  color: var(--bg);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  z-index: 100;
-  border-radius: 0 0 6px 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .skip-link:focus {
+  position: absolute;
   top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  overflow: visible;
+  clip: auto;
+  background: var(--text);
+  color: var(--bg);
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 6px 0;
 }
 
 /* ---------------------------------------------------------------
