@@ -29,6 +29,65 @@
       <dc:creator>Jamie Skella</dc:creator>
       <category>Agentic systems</category>
       <description>Most companies are still drawing the wrong org chart for work that has already changed. What replaces it is smaller, faster, and unsettling to middle management for a reason.</description>
+      <content:encoded><![CDATA[<p>Here's the thing about org charts: they're not just administrative artefacts. They're a theory of work. Every box and line is an assumption about who needs to tell whom what to do, and why. Draw a tall pyramid and you're saying that execution is expensive, specialised, and hard to coordinate without layers of people translating intent down the chain. That assumption has been true for most of human organisational history.</p>
+
+      <p>It's stopping being true right now.</p>
+
+      <p>I've spent the last couple of years working with companies building agentic systems, and I keep seeing the same thing. The org structures people are defending were designed for a world where humans performed the bulk of execution work. That world is changing faster than most leadership teams are willing to admit.</p>
+
+      <h2>What the old shape assumed</h2>
+
+      <p>The traditional hierarchy exists because coordination is hard. A CEO has a vision, but they can't personally talk to every engineer, every support rep, every analyst. So you add managers. Then managers of managers. Each layer's job is to take intent from above and translate it into specific tasks for the people below. Useful work. Genuinely useful, when the execution layer is made of people who need direction, context, and feedback to function.</p>
+
+      <p>Middle management, in this model, is the translation layer. The person who turns a strategic priority into a sprint backlog. The team lead who turns a support philosophy into a ticket-handling process. The legal coordinator who turns a GC's instincts into a review checklist. Translation work. Real work.</p>
+
+      <p>But here's what's shifted. AI agents translate intent into tasks themselves. You give a well-configured agent system a goal, you give it context and constraints, and it decomposes the problem, plans the steps, and executes. Not perfectly. With supervision required. But the supervision needed is much lighter than what it replaces, and it operates at a completely different altitude. You're not managing tasks. You're managing outcomes.</p>
+
+      <h2>The shape that's emerging</h2>
+
+      <p>I'd argue the natural shape of an AI-first organisation is two people deep.</p>
+
+      <p>A principal decides what's worth doing. This is a genuinely senior role: setting direction, holding context, making judgement calls, owning accountability. Call it founder, executive, or lead strategist depending on your context. The title matters less than the function. This person has to be good.</p>
+
+      <p>An operator runs the agent fleet. This person configures, monitors, and improves the systems that do the work. They catch errors. They know when to intervene. They understand what the agents can and can't handle. They're part systems thinker, part quality control, part infrastructure owner. This role is new and genuinely skilled.</p>
+
+      <p>Between them? Not much. The translation layer shrinks because agents handle translation.</p>
+
+      <h2>What this looks like in practice</h2>
+
+      <p>Take a product team. Twelve people: a product manager, a few engineers, a designer, a researcher, a couple of QA specialists, a data analyst, a scrum master, and some support roles. Standard mid-size product squad. In an agentic setup, that's closer to three: a product lead who owns the roadmap and makes prioritisation calls, an operator who runs the agent systems handling spec writing, code generation, test coverage, and analytics, and maybe a designer doing the work that still genuinely benefits from a human eye. The other nine aren't fired in a weekend. But over a two-year horizon, you're not backfilling them when they leave.</p>
+
+      <p>Or take a customer support team of 40. That team exists because each support interaction takes human time, and volume is high. With a well-built agent fleet, you might run the same volume with 5 people: an operator managing the systems, two or three specialists handling the genuinely complex cases the agents escalate, and a lead who owns the overall customer experience and makes calls on policy. The other 35 positions don't get posted again.</p>
+
+      <p>Legal review is instructive. One general counsel with a well-configured agent system can cover a review workload that previously kept three or four junior lawyers busy. The GC supplies judgement: what's a real risk, what matters given the company's specific situation, when to push back on a clause. The agent handles the reading, summarisation, clause comparison, and first-pass flagging. The ratio of output per senior person goes up sharply.</p>
+
+      <p>None of these examples require AGI. They're possible right now, with current systems, for any company willing to build them.</p>
+
+      <h2>What the remaining jobs look like</h2>
+
+      <p>The jobs that persist are senior jobs. That sounds like good news, and in some ways it is. The work that remains is more interesting: more judgement, more ambiguity, more real decisions. You're not approving PRs or triaging tickets. You're deciding what to build, who to serve, what risks to carry, when to stop.</p>
+
+      <p>The operator role is genuinely new and underappreciated. These people need to understand how to write effective agent instructions, how to design evaluation systems that catch errors before they compound, how to debug agentic pipelines, and how to know when a workflow is trustworthy enough to run with less oversight. That's a real craft. We don't have great names for it yet, and we're certainly not training people for it in business schools.</p>
+
+      <p>The jobs that struggle to persist are coordination jobs. Roles that exist primarily to translate someone else's intent into someone else's action. Roles that exist to write status updates, run standups, own the ticket queue, or chase approvals. I don't say this with relish. A lot of good people have built careers in exactly these roles, and they'll need to reorient. The honest thing is to name it.</p>
+
+      <h2>Why companies are slow to redraw the chart</h2>
+
+      <p>There's an obvious political reason. The people who run companies often got there by being good at navigating large, complex organisations. They have personal networks built into the existing shape. Shrinking the hierarchy shrinks their domain, and in many cases, their identity.</p>
+
+      <p>There's also a subtler reason. Rebuilding a team around agentic systems requires making explicit what was previously implicit. A good middle manager carried an enormous amount of tacit knowledge about how things get done, what the real priorities are, and which rules are actually enforced. When you remove that layer, you have to encode that knowledge somewhere. Usually in agent instructions and evaluation criteria. That work is unglamorous, takes time, and requires the principal to actually articulate things they've never had to write down before.</p>
+
+      <p>Most organisations find it easier to add an AI tool to the existing structure than to restructure around it. So they do. And they get modest gains, and tell themselves they're keeping up.</p>
+
+      <p>They're not.</p>
+
+      <h2>The question worth sitting with</h2>
+
+      <p>I've seen a few organisations move fast on this. They tend to share one quality: the people at the top understand what agents can actually do, not in the abstract but in detail, and they've built the willingness to act on what that implies.</p>
+
+      <p>The companies that are stalling tend to share a different quality. Everyone can see what's happening. The senior people know that the translation layer is becoming automatable. The middle managers know their roles are changing. Nobody wants to be the one to say it out loud.</p>
+
+      <p>The question isn't whether agentic systems will flatten your organisation. That's in motion regardless. The question is whether your existing team already knows it's happening, and is quietly hoping no one notices.</p>]]></content:encoded>
     </item>
 
     <item>
@@ -39,6 +98,67 @@
       <dc:creator>Jamie Skella</dc:creator>
       <category>Design</category>
       <description>When the cost of making anything collapses, the value moves to knowing what&#x27;s worth making. That is the entire argument for strategy as a first-class discipline again.</description>
+      <content:encoded><![CDATA[<p>For most of the last twenty years, the people who got things done ran the show. Engineers, designers, and delivery leads were the ones companies actually needed. Strategy was fine, useful even, but it was always downstream of execution. You could have the best ideas in the room and still lose to someone who shipped faster. The cost of making things kept strategy in its place.</p>
+
+      <p>That constraint is collapsing.</p>
+
+      <p>When a single operator working with AI agents can ship a feature in a day that used to take a squad a quarter, something structural changes. The scarcity moves. Making stops being the hard part, and the question of what to make becomes the thing that determines whether you win or waste a year of agent-hours on the wrong problem.</p>
+
+      <p>I'd argue that's the entire case for strategy as a serious discipline again. Not strategy as a slide deck. Strategy as the actual rate-limiting work.</p>
+
+      <h2>How execution became the measure of everything</h2>
+
+      <p>It's worth being clear about why strategy fell out of fashion, because the reason matters.</p>
+
+      <p>Shipping software was expensive. A product team of ten, running for six months, costs a lot of money and carries real risk. In that environment, velocity is precious. Every week you spend debating priorities is a week you're not building. The teams that figured out how to move fast, cut scope, and ship iteratively were the ones that survived. Everyone else got disrupted or ran out of money.</p>
+
+      <p>Execution culture was the rational response to expensive execution. Getting things done was hard enough that doing it well was a genuine competitive advantage. Companies that hired great engineers and great product managers and gave them room to move won. Companies that spent too much time in strategy retreats lost.</p>
+
+      <p>So the field optimised. Agile methodologies, lean product thinking, two-pizza teams, sprint velocity as a health metric. All of it pointed in the same direction: keep moving, ship small, learn fast, repeat. Good advice. It worked.</p>
+
+      <p>The mistake was assuming the underlying constraint would stay fixed.</p>
+
+      <h2>What changes when making gets cheap</h2>
+
+      <p>Here's a concrete version of what's happening. A year ago, building a new onboarding flow for a product might have taken a front-end engineer two weeks, a designer a week, a PM coordinating throughout, plus QA and a data analyst setting up tracking. Call it six weeks of combined effort across four people.</p>
+
+      <p>Today, a capable operator with access to a good agentic coding system can do a version of that in a day or two. The interface gets built. The copy gets written. The tracking gets instrumented. Still needs review. Still needs human judgement at key points. But the effort-to-output ratio has shifted by an order of magnitude.</p>
+
+      <p>Now consider the question that matters: which onboarding flow should you build? For which users? Solving for which behaviour? Measured how? That question takes the same amount of careful thinking it always did. Probably more, now that you can act on the answer so quickly. A bad answer is no longer corrected slowly through the natural friction of slow execution. A bad answer gets shipped fast, iterated on fast, and compounds fast.</p>
+
+      <p>Speed amplifies everything, including mistakes. The premium on getting the question right goes up.</p>
+
+      <h2>The skills that actually matter now</h2>
+
+      <p>If strategy is the new bottleneck, it's worth being specific about what strategy means in practice. I'd split it into four things.</p>
+
+      <p><strong>Foresight.</strong> The ability to read what's emerging before it's obvious. This is harder than it sounds. Most organisations are good at understanding the present and projecting it forward in a straight line. Genuine foresight means catching the signals that suggest the line is about to bend. Which customer complaints are early warnings of a larger shift? Which competitor move is actually a sign of where the whole market is heading? You can't automate this well. It requires wide reading, intellectual honesty, and a willingness to sit with ambiguity without resolving it prematurely.</p>
+
+      <p><strong>Optionality.</strong> Staying light on commitments until you have enough information to commit well. This is a genuine skill that runs against most organisational instincts. Companies want plans. Boards want roadmaps. Teams want to know what they're building for the next two quarters. The strategist's job is to hold that pressure without over-committing too early, and to know which decisions are easily reversible and which ones aren't. Reversible decisions should be made fast. Irreversible ones deserve more time.</p>
+
+      <p><strong>Judgement.</strong> Deciding what's worth optimising for. This is where most strategy falls apart. Companies confuse activity with direction. They measure what's measurable rather than what matters. They optimise for engagement when they should be optimising for trust, or for short-term conversion when they should be building for long-term retention. Good judgement means naming the thing you're actually trying to achieve, being honest about the trade-offs, and holding that line when the pressure to chase a different metric arrives.</p>
+
+      <p><strong>Measurement design.</strong> Defining what "done" means clearly enough that an agent fleet can work toward it. This one's new, and it's more demanding than it sounds. Agents can optimise hard for whatever metric you give them. If your metric is wrong, they'll optimise hard for the wrong thing, quickly and at scale. The work of defining good success criteria, with the right leading indicators and the right guardrails, is now strategy-level work. It used to sit in analytics teams and get treated as operational. It should sit at the top.</p>
+
+      <h2>What most companies are still doing</h2>
+
+      <p>I've talked to a lot of product leaders over the past year. Most of them are genuinely excited about what AI systems can do. They're using them to accelerate their existing teams. They're shipping faster, which feels good.</p>
+
+      <p>What's harder to see from inside is that shipping faster only helps if you're heading in the right direction. If your strategy is fuzzy, moving faster just gets you to the wrong place sooner. The discipline of knowing which direction to point hasn't improved at the same rate as the speed at which you can move.</p>
+
+      <p>A few companies get this. Anthropic is unusually deliberate about which capabilities to build and which to hold back, and why. That's strategy work at the highest level, and it's what will likely determine their position over the next decade more than any individual product decision. Valve has famously maintained a structure where project selection is the real work, and it's sustained one of the highest revenue-per-employee ratios in the industry for years. These aren't accidents.</p>
+
+      <p>The companies that struggle will be the ones that treat AI as a speed upgrade without asking what they're speeding toward.</p>
+
+      <h2>Execution was the last war</h2>
+
+      <p>I'm not saying execution stops mattering. Ships still need to leave the harbour, and someone has to make sure they do. But "we're great at shipping" is no longer a differentiated position. It's table stakes, the same way "we have electricity" stopped being a selling point once everyone had electricity.</p>
+
+      <p>The question that separates good companies from great ones is shifting back to: what are you building, for whom, and why does it matter? That used to be a question you could afford to answer loosely because the execution constraints kept you honest. You couldn't build everything, so the bad ideas got filtered out by resource scarcity. Take away that constraint and the question gets sharper.</p>
+
+      <p>Most companies are still talking about execution as the differentiator. You hear it constantly: we move fast, we ship, we iterate. That was the right answer for a long time. It was the last war, and the people who won it are proud, reasonably so.</p>
+
+      <p>The next war is about knowing what to build in the first place. And most companies haven't started preparing for it yet.</p>]]></content:encoded>
     </item>
 
     <item>
