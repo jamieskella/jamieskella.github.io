@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skella.com.au/sitemap.xml
