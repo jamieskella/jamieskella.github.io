@@ -13,10 +13,36 @@ Skella & Co helps organisations decide which systems to deploy, what they should
 - [Writing](https://skella.com.au/writing/): Essays on agentic systems and emerging technology.
 - [RSS feed](https://skella.com.au/feed.xml): Subscribe to new writing.
 
-## Recent essays
+## Essays
 
-- [The agentic org chart is two people deep](https://skella.com.au/writing/agentic-org-chart-two-people-deep/)
-- [Strategy is what's left when code and design become free](https://skella.com.au/writing/strategy-when-code-and-design-become-free/)
+- [The agentic org chart is two people deep](https://skella.com.au/writing/agentic-org-chart-two-people-deep/) — 21 April 2026
+- [Strategy is what's left when code and design become free](https://skella.com.au/writing/strategy-when-code-and-design-become-free/) — 21 April 2026
+- [Console market thesis: Valve is a bigger threat to PlayStation than Xbox ever was](https://skella.com.au/writing/console-market-thesis-valve-bigger-threat-to-playstation-than-xbox-ever-was/) — 25 February 2026
+- [Screens don't damage brains. What's on them does.](https://skella.com.au/writing/screens-dont-damage-brains-whats-on-them-does/) — 11 February 2026
+- [The internet is going back in time, and that’s a good thing](https://skella.com.au/writing/the-internet-is-going-back-in-time-and-thats-a-good-thing/) — 5 July 2023
+- [How GPT-4 will bring "Her"​ to life](https://skella.com.au/writing/how-gpt-4-will-bring-her-to-life/) — 21 March 2023
+- [The Next Now: First Trump, now Murdoch, banned from Facebook](https://skella.com.au/writing/first-trump-now-murdoch-banned-from-facebook/) — 18 February 2021
+- [The Next Now: the internet vs the mega rich](https://skella.com.au/writing/gamestop-the-internet-vs-the-mega-rich/) — 29 January 2021
+- [The Next Now: silicon, superpowers, and the suppression of globalisation](https://skella.com.au/writing/silicon-superpowers-and-the-suppression-of-globalisation/) — 4 January 2021
+- [The Next Now: Privacy and China](https://skella.com.au/writing/privacy-and-china/) — 20 July 2020
+- [It's time to rethink your tablet strategy](https://skella.com.au/writing/its-time-to-rethink-your-tablet-strategy/) — 18 June 2020
+- [The Next Now: work from home forever + esports mainstream moment](https://skella.com.au/writing/work-from-home-forever-esports-mainstream-moment/) — 1 June 2020
+- [What cloud gaming is, and why it’s not the future of esports](https://skella.com.au/writing/what-cloud-gaming-is-and-why-its-not-the-future-of-esports/) — 24 June 2019
+- [Designing better experiences for Blockchain (and everything else)](https://skella.com.au/writing/designing-better-experiences-for-blockchain-and-everything-else/) — 2 May 2018
+- [Tales of a Bitcoin Debate](https://skella.com.au/writing/tales-of-a-bitcoin-debate/) — 15 February 2018
+- [Introducing Horizon State](https://skella.com.au/writing/introducing-horizon-state/) — 23 August 2017
+- [Taking advantage of our unknown future](https://skella.com.au/writing/taking-advantage-of-our-unknown-future/) — 4 July 2017
+- [The future of human experience](https://skella.com.au/writing/the-future-of-human-experience/) — 21 June 2017
+- [A blockchain explanation your parents could understand](https://skella.com.au/writing/a-blockchain-explanation-your-parents-could-understand/) — 3 June 2017
+- [The future of work, and our ultimate end](https://skella.com.au/writing/the-future-of-work-and-our-ultimate-end/) — 20 April 2017
+- [More sleep + less work = better business results](https://skella.com.au/writing/more-sleep-less-work-better-business-results/) — 18 April 2017
+- [Progress, for whom? An open letter to innovation leaders](https://skella.com.au/writing/progress-for-whom-an-open-letter-to-innovation-leaders/) — 14 November 2016
+- [Resisting a mobile future is futile](https://skella.com.au/writing/resisting-a-mobile-future-is-futile/) — 28 January 2016
+- [Your business will be disrupted by autonomous vehicles](https://skella.com.au/writing/your-business-will-be-disrupted-by-autonomous-vehicles/) — 29 July 2015
+- [Mobile advertising is about to be fundamentally disrupted](https://skella.com.au/writing/mobile-advertising-is-about-to-be-fundamentally-disrupted/) — 26 June 2015
+- [Our virtual reality future starts with the Gear VR](https://skella.com.au/writing/our-virtual-reality-future-starts-with-the-gear-vr/) — 6 January 2015
+- [The Bottom Line Value of Design](https://skella.com.au/writing/the-bottom-line-value-of-design/) — 17 June 2014
+- [What UX isn’t](https://skella.com.au/writing/what-ux-isnt/) — 11 April 2014
 
 ## Contact
 

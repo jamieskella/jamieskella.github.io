@@ -388,6 +388,17 @@ header.site .logo img {
   }
 }
 
+/* AFL mark reads smaller than wordmarks at shared height; bump for optical parity */
+.clients__row img.clients__row-img--afl {
+  height: 34px;
+}
+
+@media (min-width: 48rem) {
+  .clients__row img.clients__row-img--afl {
+    height: 40px;
+  }
+}
+
 /* ---------------------------------------------------------------
    Testimonial
    --------------------------------------------------------------- */
