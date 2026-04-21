@@ -406,7 +406,6 @@ header.site .logo img {
    --------------------------------------------------------------- */
 .testimonial {
   margin-top: clamp(3rem, 5vw, 4.5rem);
-  padding-top: clamp(2rem, 3vw, 2.75rem);
   max-width: 48rem;
 }
 
