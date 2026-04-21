@@ -348,7 +348,9 @@ header.site .logo img {
 .clients {
   margin-top: clamp(3rem, 5vw, 4.5rem);
   padding-top: clamp(2rem, 3vw, 2.75rem);
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
   border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 /* When the clients strip appears early (between hero paragraphs), tighten the rhythm */
@@ -403,9 +405,8 @@ header.site .logo img {
    Testimonial
    --------------------------------------------------------------- */
 .testimonial {
-  margin-top: clamp(3.5rem, 6vw, 5.5rem);
-  padding-top: clamp(2.5rem, 4vw, 3.5rem);
-  border-top: 1px solid var(--rule);
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  padding-top: clamp(2rem, 3vw, 2.75rem);
   max-width: 48rem;
 }
 
@@ -442,8 +443,8 @@ header.site .logo img {
    Ventures
    --------------------------------------------------------------- */
 .ventures {
-  margin-top: clamp(3.5rem, 6vw, 5.5rem);
-  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  padding-top: clamp(2rem, 3vw, 2.75rem);
   border-top: 1px solid var(--rule);
 }
 
@@ -524,8 +525,8 @@ header.site .logo img {
    Contact
    --------------------------------------------------------------- */
 .contact {
-  margin-top: clamp(3.5rem, 6vw, 5.5rem);
-  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  padding-top: clamp(2rem, 3vw, 2.75rem);
   border-top: 1px solid var(--rule);
 }
 
@@ -558,8 +559,8 @@ header.site .logo img {
    Footer
    --------------------------------------------------------------- */
 footer.site {
-  margin-top: clamp(4rem, 7vw, 6rem);
-  padding: 2rem 0 0;
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  padding: clamp(2rem, 3vw, 2.75rem) 0 0;
   border-top: 1px solid var(--rule);
   display: flex;
   flex-wrap: wrap;
