@@ -56,3 +56,7 @@ Side projects now running quietly: [Arbiio](https://arbiio.com.au/), [Crayon Dre
 
 - [Privacy](https://skella.com.au/privacy/): Cookieless analytics, no tracking, Australian Privacy Principles compliant.
 - [Terms](https://skella.com.au/terms/): Plain language, personal site.
+
+## Legal entity
+
+Skella & Co is the trading name of Skella & Co Pty Ltd (ACN 624 414 179), an Australian proprietary limited company based in South Australia.
