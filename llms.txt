@@ -1,0 +1,16 @@
+# Skella & Co
+
+> Strategy for agentic systems and emerging technology. Skella & Co is the advisory practice of Jamie Skella, helping organisations from startup to blue chip decide which systems to deploy, what they should optimise for, and how to operate them.
+
+Skella & Co sits above the code-and-design layer. As generative and agentic systems take on more of the execution work, the scarce skill is no longer writing the code or drawing the screen. It is defining intent, setting guardrails, choosing what to measure, and running the systems once they are live.
+
+## About
+
+- [About Skella & Co](https://skella.com.au/about.md): Practice summary, services, and background on Jamie Skella.
+- [Home page](https://skella.com.au/): Top-level positioning and contact.
+
+## Contact
+
+- Principal: Jamie Skella
+- Location: Braddon, ACT, Australia
+- Email: available via the home page (client-side obfuscation).
