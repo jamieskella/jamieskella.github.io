@@ -62,6 +62,7 @@
 
 <!-- Reveal animation libraries -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js" defer></script>
 
 <!-- Structured data -->
@@ -257,34 +258,44 @@
       return;
     }
 
-    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    if (typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
 
-    tl.fromTo('header.site > *',
+    /* Header fires immediately on load */
+    gsap.fromTo('header.site > *',
       { opacity: 0, y: 8 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 },
-      0
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out' }
     );
 
+    /* Each reveal element animates when it scrolls into view */
     document.querySelectorAll('[data-reveal]').forEach(function(el) {
       var type = el.getAttribute('data-reveal');
       var delay = parseFloat(el.getAttribute('data-reveal-delay') || '0');
       gsap.set(el, { opacity: 1 });
 
+      var scrollTrigger = (typeof ScrollTrigger !== 'undefined') ? {
+        trigger: el,
+        start: 'top 85%',
+        once: true
+      } : undefined;
+
       if (type === 'words') {
         /* Japanese has no whitespace-delimited words; fall back to fade */
-        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.7 }, delay);
+        gsap.fromTo(el,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: delay, scrollTrigger: scrollTrigger }
+        );
       } else if (type === 'lines') {
         var splitL = new SplitType(el, { types: 'lines' });
-        tl.fromTo(splitL.lines,
+        gsap.fromTo(splitL.lines,
           { opacity: 0, y: '0.4em' },
-          { opacity: 1, y: 0, duration: 0.75, stagger: 0.09 },
-          delay
+          { opacity: 1, y: 0, duration: 0.75, stagger: 0.09, ease: 'power3.out', delay: delay, scrollTrigger: scrollTrigger }
         );
       } else {
-        tl.fromTo(el,
+        gsap.fromTo(el,
           { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          delay
+          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: delay, scrollTrigger: scrollTrigger }
         );
       }
     });
