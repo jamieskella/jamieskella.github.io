@@ -401,6 +401,11 @@ header.site .logo img {
   }
 }
 
+/* Telstra wordmark sits optically high vs other marks at shared baseline; nudge down */
+.clients__row img.clients__row-img--telstra {
+  transform: translateY(2px);
+}
+
 /* ---------------------------------------------------------------
    Testimonial
    --------------------------------------------------------------- */
