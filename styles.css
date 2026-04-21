@@ -874,6 +874,218 @@ footer.site a:hover {
   color: var(--muted);
 }
 
+/* Essay tag chips (in-article) */
+.post__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+}
+
+.post__tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.post__tag:hover,
+.post__tag:focus-visible {
+  color: var(--brand);
+  border-color: var(--brand);
+  outline: none;
+}
+
+/* Prev / next pager */
+.post__pager {
+  margin-top: clamp(3rem, 5vw, 4rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.post__pager-link {
+  display: block;
+  padding: 1rem 0;
+  color: var(--text);
+  transition: transform 0.2s var(--ease), color 0.2s var(--ease);
+  border: 0;
+}
+
+.post__pager-link--next {
+  text-align: right;
+}
+
+.post__pager-link--empty {
+  display: block;
+}
+
+.post__pager-link:hover,
+.post__pager-link:focus-visible {
+  color: var(--brand);
+  outline: none;
+}
+
+.post__pager-link--prev:hover,
+.post__pager-link--prev:focus-visible {
+  transform: translateX(-4px);
+}
+
+.post__pager-link--next:hover,
+.post__pager-link--next:focus-visible {
+  transform: translateX(4px);
+}
+
+.post__pager-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.post__pager-title {
+  display: block;
+  font-size: var(--step-1);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 40rem) {
+  .post__pager {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .post__pager-link--next {
+    text-align: left;
+  }
+  .post__pager-link--empty {
+    display: none;
+  }
+}
+
+/* Writing index — filter controls */
+.writing-filter {
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.writing-filter__search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.writing-filter__search-label {
+  font-size: 0.78rem;
+  color: var(--soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.writing-filter__search input {
+  font: inherit;
+  font-size: var(--step-1);
+  padding: 0.65rem 0.85rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  transition: border-color 0.2s var(--ease);
+}
+
+.writing-filter__search input:focus-visible {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.writing-filter__search input::placeholder {
+  color: var(--soft);
+}
+
+.writing-filter__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+
+.writing-filter__tag {
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.writing-filter__tag:hover,
+.writing-filter__tag:focus-visible {
+  color: var(--brand);
+  border-color: var(--brand);
+  outline: none;
+}
+
+.writing-filter__tag.is-active {
+  color: var(--bg);
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.writing-filter__empty {
+  margin: 0.5rem 0 0;
+  font-size: var(--step-0);
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Writing index — inline meta + tag chips on list rows */
+.post-list__meta {
+  grid-column: 2;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--soft);
+  letter-spacing: 0.02em;
+}
+
+.post-list__tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.35rem;
+}
+
+.post-list__tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+@media (max-width: 40rem) {
+  .post-list__meta {
+    grid-column: 1;
+  }
+}
+
 /* Legal (privacy / terms) */
 .legal h1 {
   margin: 0 0 0.5rem;

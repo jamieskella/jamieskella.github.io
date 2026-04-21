@@ -38,6 +38,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://skella.com.au/writing/an-openclaw-explanation-your-parents-can-understand/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://skella.com.au/writing/console-market-thesis-valve-bigger-threat-to-playstation-than-xbox-ever-was/</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>yearly</changefreq>
@@ -112,12 +118,6 @@
   <url>
     <loc>https://skella.com.au/writing/tales-of-a-bitcoin-debate/</loc>
     <lastmod>2018-02-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://skella.com.au/writing/introducing-horizon-state/</loc>
-    <lastmod>2017-08-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

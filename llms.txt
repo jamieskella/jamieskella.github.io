@@ -17,6 +17,7 @@ Skella & Co helps organisations decide which systems to deploy, what they should
 
 - [The agentic org chart is two people deep](https://skella.com.au/writing/agentic-org-chart-two-people-deep/) — 21 April 2026
 - [Strategy is what's left when code and design become free](https://skella.com.au/writing/strategy-when-code-and-design-become-free/) — 21 April 2026
+- [An OpenClaw explanation your parents can understand](https://skella.com.au/writing/an-openclaw-explanation-your-parents-can-understand/) — 25 March 2026
 - [Console market thesis: Valve is a bigger threat to PlayStation than Xbox ever was](https://skella.com.au/writing/console-market-thesis-valve-bigger-threat-to-playstation-than-xbox-ever-was/) — 25 February 2026
 - [Screens don't damage brains. What's on them does.](https://skella.com.au/writing/screens-dont-damage-brains-whats-on-them-does/) — 11 February 2026
 - [The internet is going back in time, and that’s a good thing](https://skella.com.au/writing/the-internet-is-going-back-in-time-and-thats-a-good-thing/) — 5 July 2023
@@ -30,7 +31,6 @@ Skella & Co helps organisations decide which systems to deploy, what they should
 - [What cloud gaming is, and why it’s not the future of esports](https://skella.com.au/writing/what-cloud-gaming-is-and-why-its-not-the-future-of-esports/) — 24 June 2019
 - [Designing better experiences for Blockchain (and everything else)](https://skella.com.au/writing/designing-better-experiences-for-blockchain-and-everything-else/) — 2 May 2018
 - [Tales of a Bitcoin Debate](https://skella.com.au/writing/tales-of-a-bitcoin-debate/) — 15 February 2018
-- [Introducing Horizon State](https://skella.com.au/writing/introducing-horizon-state/) — 23 August 2017
 - [Taking advantage of our unknown future](https://skella.com.au/writing/taking-advantage-of-our-unknown-future/) — 4 July 2017
 - [The future of human experience](https://skella.com.au/writing/the-future-of-human-experience/) — 21 June 2017
 - [A blockchain explanation your parents could understand](https://skella.com.au/writing/a-blockchain-explanation-your-parents-could-understand/) — 3 June 2017
