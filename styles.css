@@ -401,7 +401,8 @@ header.site .logo img {
   }
 }
 
-/* Telstra wordmark sits optically high vs other marks at shared baseline; nudge down */
+/* Western Digital and Telstra wordmarks sit optically high at shared baseline; nudge down */
+.clients__row img.clients__row-img--wd,
 .clients__row img.clients__row-img--telstra {
   transform: translateY(2px);
 }
