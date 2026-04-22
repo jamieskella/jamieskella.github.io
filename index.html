@@ -169,21 +169,21 @@
 
   <section class="hero">
     <p class="lede" data-reveal="words">
-      Emerging technology strategy, holistic experience design, and go-to-market consultancy for the agentic era. I work behind the curtains with venture-backed startups and high-profile clients to develop ideas and achieve outcomes that power their success on the global stage.
+      Emerging technology strategy, holistic experience design, and go-to-market consultancy for the agentic era. We work behind the curtains with venture-backed startups and high-profile clients to develop ideas and achieve outcomes that power their success on the global stage.
     </p>
   </section>
 
   <section class="hero hero--continued">
     <p class="lede" data-reveal="lines" data-reveal-delay="0.3">
-      My brief has been the same one for two decades. Identify change before others, treat that change as opportunity instead of threat, use it to guide leaders on what to do next, then help them do it.
+      Jamie Skella's mandate has been the same one for two decades. Identify change before others, treat that change as opportunity instead of threat, then guide leaders on what to do next and help them do it.
     </p>
     <p class="credentials" data-reveal="fade" data-reveal-delay="0.3">
-      World Economic Forum Technology Pioneer Award winner. Past work with AMD, Western Digital, Telstra, AAMI, and the AFL, alongside award-winning early-stage companies.
+      Jamie is a World Economic Forum Technology Pioneer Award winner. Past work with AMD, Western Digital, Telstra, AAMI, and the AFL, alongside award-winning early-stage companies.
     </p>
   </section>
 
   <section class="clients" data-reveal="fade" data-reveal-delay="0.45" aria-labelledby="clients-label">
-    <p class="clients__label" id="clients-label">Brands I've worked with</p>
+    <p class="clients__label" id="clients-label">Brands we've worked with</p>
     <div class="clients__row">
       <img src="/logos/clients/amd.png" alt="AMD" class="clients__row-img--amd" loading="lazy" width="48" height="22">
       <img src="/logos/clients/western-digital.png" alt="Western Digital" class="clients__row-img--wd" loading="lazy" width="48" height="22">
@@ -202,7 +202,7 @@
 
   <section class="ventures" data-reveal="fade" data-reveal-delay="0.9" aria-labelledby="ventures-label">
     <p class="ventures__label" id="ventures-label">Also built</p>
-    <p class="ventures__hint">Side projects I've shipped and now run quietly in the background.</p>
+    <p class="ventures__hint">Side projects we've shipped and now run quietly in the background.</p>
     <div class="ventures__row">
       <a class="venture" href="https://arbiio.com.au/" target="_blank" rel="noopener">
         <img src="/logos/ventures/arbiio.png" alt="" loading="lazy" aria-hidden="true">
@@ -295,14 +295,14 @@
       gsap.set(el, { opacity: 1 });
 
       if (type === 'words') {
-        var split = new SplitType(el, { types: 'words' });
+        var split = new SplitType(el, { types: 'words', tagName: 'span' });
         tl.fromTo(split.words,
           { opacity: 0, y: '0.4em' },
           { opacity: 1, y: 0, duration: 0.7, stagger: 0.025 },
           delay
         );
       } else if (type === 'lines') {
-        var splitL = new SplitType(el, { types: 'lines' });
+        var splitL = new SplitType(el, { types: 'lines', tagName: 'span' });
         tl.fromTo(splitL.lines,
           { opacity: 0, y: '0.4em' },
           { opacity: 1, y: 0, duration: 0.75, stagger: 0.09 },

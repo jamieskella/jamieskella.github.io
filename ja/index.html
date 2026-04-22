@@ -155,10 +155,10 @@
 
   <section class="hero hero--continued">
     <p class="lede" data-reveal="lines" data-reveal-delay="0.3">
-      私のテーマは20年間変わりません。変化を誰よりも早く捉え、それを脅威ではなく機会として扱い、次に何をすべきかをリーダーに示し、その実行まで伴走すること。
+      Jamie Skella のテーマは20年間変わりません。変化を誰よりも早く捉え、それを脅威ではなく機会として扱い、次に何をすべきかをリーダーに示し、その実行まで伴走すること。
     </p>
     <p class="credentials" data-reveal="fade" data-reveal-delay="0.3">
-      World Economic Forum Technology Pioneer Award 受賞。AMD、Western Digital、Telstra、AAMI、AFL、および受賞歴のある初期段階企業とのプロジェクト実績。
+      Jamie は World Economic Forum Technology Pioneer Award 受賞者。AMD、Western Digital、Telstra、AAMI、AFL、および受賞歴のある初期段階企業とのプロジェクト実績。
     </p>
   </section>
 
@@ -182,7 +182,7 @@
 
   <section class="ventures" data-reveal="fade" data-reveal-delay="0.9" aria-labelledby="ventures-label-ja">
     <p class="ventures__label" id="ventures-label-ja">その他に作ったもの</p>
-    <p class="ventures__hint">リリース後、今も静かに運用している個人プロジェクト。</p>
+    <p class="ventures__hint">リリース後、今も静かに運用しているサイドプロジェクト。</p>
     <div class="ventures__row">
       <a class="venture" href="https://arbiio.com.au/" target="_blank" rel="noopener">
         <img src="/logos/ventures/arbiio.png" alt="" loading="lazy" aria-hidden="true">
@@ -276,7 +276,7 @@
         /* Japanese has no whitespace-delimited words; fall back to fade */
         tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.7 }, delay);
       } else if (type === 'lines') {
-        var splitL = new SplitType(el, { types: 'lines' });
+        var splitL = new SplitType(el, { types: 'lines', tagName: 'span' });
         tl.fromTo(splitL.lines,
           { opacity: 0, y: '0.4em' },
           { opacity: 1, y: 0, duration: 0.75, stagger: 0.09 },
