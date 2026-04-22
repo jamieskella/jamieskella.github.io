@@ -222,7 +222,33 @@ header.site .logo img {
 .header-controls {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.25rem;
+}
+
+.site-link {
+  font: inherit;
+  font-size: var(--step-0);
+  line-height: 1;
+  color: var(--muted);
+  text-decoration: none;
+  border: 0;
+  padding: 0.25rem 0;
+  transition: color 0.2s var(--ease);
+}
+
+.site-link:hover,
+.site-link:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+.site-link[aria-current="page"] {
+  color: var(--text);
+}
+
+/* Pull the pill slightly away from the text links */
+.header-controls .lang-toggle {
+  margin-left: 0.25rem;
 }
 
 .lang-toggle {
