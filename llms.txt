@@ -50,7 +50,7 @@ Email is revealed on click at [skella.com.au](https://skella.com.au/). Jamie is 
 
 ## Also built
 
-Side projects now running quietly: [Arbiio](https://arbiio.com.au/), [Crayon Dreaming](https://crayondreaming.com/), and [WC Calendar](https://wccalendar.com/).
+Side projects now running quietly: [Arbiio](https://arbiio.com.au/), [Crayon Dreaming](https://crayondreaming.com/), [WC Calendar](https://wccalendar.com/), and [PickUp Sign](https://pick-up-sign.com/).
 
 ## Policies
 
