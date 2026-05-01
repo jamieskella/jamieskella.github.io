@@ -113,7 +113,7 @@
     <div class="post__body">
 <p>Most teams are securing the model and shipping an insecure system. They're tuning the LLM, running prompt injection eval suites, polishing the system prompt, then handing the resulting agent a browser, a credit card, a memory store, and three other agents to coordinate with. The model isn't the surface anymore. The agent is.</p>
 
-      <p>I've spent the last year sitting in rooms where this confusion plays out. Someone asks "is the model jailbreak-resistant?" and the answer feels like the answer. It isn't. The model is one component in a system that now plans across days, writes to persistent memory, calls tools that move money, and trusts messages from peer agents. None of that surface is covered by red-teaming the LLM.</p>
+      <p>I've spent the last year sitting in rooms where this confusion plays out. Teams confirm the model is jailbreak-resistant and act as if the security question is closed. It isn't. The model is one component in a system that now plans across days, writes to persistent memory, calls tools that move money, and trusts messages from peer agents. None of that surface is covered by red-teaming the LLM.</p>
 
       <p>A new survey paper makes this concrete in a way I haven't seen before. Chu's <a href="https://arxiv.org/html/2604.23338v1">Layered Attack Surface Model</a> maps the agentic attack surface across seven layers: Foundation, Cognitive, Memory, Tool Execution, Multi-Agent Coordination, Ecosystem, and Governance. The point is that "prompt injection" is not one thing. The same label hides at least three different attacks on three different layers, each requiring a different control. Treat them as one and you'll under-defend at least two of them.</p>
 
