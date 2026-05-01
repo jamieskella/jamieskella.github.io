@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://plausible.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your agents are your new attack surface — Skella &amp; Co</title>
+<link rel="canonical" href="https://skella.com.au/writing/your-agents-are-your-new-attack-surface/">
+<meta name="description" content="Most teams are securing the model and shipping an insecure system. They&#x27;re tuning the LLM, running prompt injection eval suites, polishing the system prompt, then…">
+<meta name="author" content="Jamie Skella">
+<meta name="keywords" content="your agents are your new attack surface, Jamie Skella, Skella and Co, essays, emerging technology, product strategy">
+<meta name="theme-color" content="#FAFAFB">
+<link rel="preload" href="/fonts/soehne-leicht.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/soehne-buch.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<link rel="alternate" type="application/rss+xml" title="Notes by Jamie Skella" href="/feed.xml">
+<link rel="alternate" hreflang="en-AU" href="https://skella.com.au/writing/your-agents-are-your-new-attack-surface/">
+<link rel="alternate" hreflang="x-default" href="https://skella.com.au/writing/your-agents-are-your-new-attack-surface/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skella &amp; Co">
+<meta property="og:title" content="Your agents are your new attack surface">
+<meta property="og:description" content="Most teams are securing the model and shipping an insecure system. They&#x27;re tuning the LLM, running prompt injection eval suites, polishing the system prompt, then…">
+<meta property="og:url" content="https://skella.com.au/writing/your-agents-are-your-new-attack-surface/">
+<meta property="og:image" content="https://skella.com.au/skella-co-og-1200x630.png">
+<meta property="og:image:alt" content="Skella &amp; Co — Your agents are your new attack surface">
+<meta property="article:author" content="Jamie Skella">
+<meta property="article:section" content="Agentic systems">
+<meta property="article:published_time" content="2026-05-01">
+<meta property="article:modified_time" content="2026-05-01">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@jamieskella">
+<meta name="twitter:creator" content="@jamieskella">
+<meta name="twitter:image:alt" content="Your agents are your new attack surface">
+
+<link rel="me" href="https://www.linkedin.com/in/jamieskella/">
+<link rel="me" href="https://github.com/jamieskella">
+<link rel="me" href="https://x.com/jamieskella">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://skella.com.au/writing/your-agents-are-your-new-attack-surface/#article",
+      "headline": "Your agents are your new attack surface",
+      "description": "Most teams are securing the model and shipping an insecure system. They're tuning the LLM, running prompt injection eval suites, polishing the system prompt, then\u2026",
+      "author": {
+        "@type": "Person",
+        "@id": "https://skella.com.au/#jamie",
+        "name": "Jamie Skella",
+        "url": "https://skella.com.au/",
+        "sameAs": [
+          "https://www.linkedin.com/in/jamieskella/",
+          "https://github.com/jamieskella",
+          "https://x.com/jamieskella"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Skella & Co",
+        "logo": { "@type": "ImageObject", "url": "https://skella.com.au/skella-co-logo-310px.png" }
+      },
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "mainEntityOfPage": "https://skella.com.au/writing/your-agents-are-your-new-attack-surface/",
+      "url": "https://skella.com.au/writing/your-agents-are-your-new-attack-surface/",
+      "inLanguage": "en-AU",
+      "wordCount": 1177,
+      "timeRequired": "PT5M",
+      "articleSection": "Agentic systems",
+      "keywords": "Agentic systems",
+      "image": "https://skella.com.au/skella-co-og-1200x630.png",
+      "isPartOf": { "@type": "Blog", "@id": "https://skella.com.au/writing/#blog" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://skella.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Notes", "item": "https://skella.com.au/writing/" },
+        { "@type": "ListItem", "position": 3, "name": "Your agents are your new attack surface", "item": "https://skella.com.au/writing/your-agents-are-your-new-attack-surface/" }
+      ]
+    }
+  ]
+}
+</script>
+
+<script defer data-domain="skella.com.au" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="shell shell--narrow">
+
+  <header class="site rise rise-1">
+    <a class="logo" href="/" aria-label="Skella &amp; Co home">
+      <img src="/skella-co-logo-310px.png" width="130" alt="Skella &amp; Co">
+    </a>
+    <nav class="header-controls" aria-label="Site controls">
+      <a class="site-link" href="/writing/">Notes</a>
+      <a class="site-link" href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+<article class="post rise rise-2">
+    <h1>Your agents are your new attack surface</h1>
+    <p class="post__meta"><span>By Jamie Skella</span><span><time datetime="2026-05-01">1 May 2026</time></span><span>5 min read</span></p>
+    
+    <div class="post__body">
+<p>Most teams are securing the model and shipping an insecure system. They're tuning the LLM, running prompt injection eval suites, polishing the system prompt, then handing the resulting agent a browser, a credit card, a memory store, and three other agents to coordinate with. The model isn't the surface anymore. The agent is.</p>
+
+      <p>I've spent the last year sitting in rooms where this confusion plays out. Someone asks "is the model jailbreak-resistant?" and the answer feels like the answer. It isn't. The model is one component in a system that now plans across days, writes to persistent memory, calls tools that move money, and trusts messages from peer agents. None of that surface is covered by red-teaming the LLM.</p>
+
+      <p>A new survey paper makes this concrete in a way I haven't seen before. Chu's <a href="https://arxiv.org/html/2604.23338v1">Layered Attack Surface Model</a> maps the agentic attack surface across seven layers: Foundation, Cognitive, Memory, Tool Execution, Multi-Agent Coordination, Ecosystem, and Governance. The point is that "prompt injection" is not one thing. The same label hides at least three different attacks on three different layers, each requiring a different control. Treat them as one and you'll under-defend at least two of them.</p>
+
+      <p>That's the bit operators need to internalise. Not the seven layers as such. The shape of the problem.</p>
+
+      <h2>The trust inversion nobody talks about</h2>
+
+      <p>The paper names something I've been gesturing at for a while without a clean term. They call it principal trust inversion.</p>
+
+      <p>The intended trust order in an agent deployment is roughly: developer, then operator, then user, then environment. The environment, meaning the websites the agent reads, the documents it retrieves, the tool outputs it consumes, is the least trusted thing in the chain. It's the open internet. It's email bodies. It's pull request descriptions. It's whatever was lying around in the docs folder.</p>
+
+      <p>In practice, almost every agent I've reviewed treats environment input as high-trust. The retrieved web page goes straight into the planning context. The tool's response is incorporated as if it were a fact. The peer agent's message is followed as if it came from the operator.</p>
+
+      <p>This is the bug. Not a model bug. An architecture bug.</p>
+
+      <p>A real example from the literature. The <a href="https://arxiv.org/html/2604.23338v1">GitHub Copilot remote code execution</a> chain wasn't a clever jailbreak. The agent read project files, those files contained instructions, and the agent followed them. Shell execution, in a routine code review session. The fix isn't a smarter model. The fix is treating tool returns as untrusted input and refusing to act on them without a trust mark.</p>
+
+      <p>That's what trust inversion looks like in production. The agent is doing what it was built to do. The system was just built wrong.</p>
+
+      <h2>Time is a security dimension</h2>
+
+      <p>The other thing the paper does well is take time seriously. Most existing security thinking treats attacks as instantaneous. You inject, you exploit, it happens in one inference call. Classical prompt injection lives here. So does most of the eval work.</p>
+
+      <p>Agentic systems are different because the gap between injection and exploitation can be enormous.</p>
+
+      <p>A document poisoned today writes a memory entry. Three weeks later, in an unrelated session, that memory is retrieved and shapes a decision. There is no single session in which you can see both halves of the attack. The injection looks like a normal write. The exploitation looks like a normal read. Cross-session memory poisoning is invisible to the kind of monitoring most teams have running.</p>
+
+      <p>It gets worse. A weight-level backdoor planted during fine-tuning produces no memory trail at all. It waits for an arbitrary trigger, which may never appear in your evaluations. Hubinger and colleagues at Anthropic have already shown that standard safety fine-tuning doesn't remove trained triggers. You can't grep for a behaviour that hasn't fired yet.</p>
+
+      <p>If you only defend against same-session attacks, you've defended against the easy ones.</p>
+
+      <h2>The seven things to actually check</h2>
+
+      <p>I'm wary of checklists for problems that are still moving. But operators are deploying these systems now, and "wait for the standards to settle" is not a posture I can recommend. Here is the version I'd run.</p>
+
+      <ol>
+        <li>Foundation. What model are you using, who trained it, and do you have any reason to trust the training data and fine-tuning pipeline? "It's a popular API" is not an answer.</li>
+        <li>Cognitive. Can you inspect the agent's plan before it executes? If your agent decomposes a goal into a sequence of tool calls, you want a verifier in the loop that flags plans which deviate from your stated policy, before any irreversible action runs.</li>
+        <li>Memory. Who can write to the agent's long-term memory, and what's the audit trail? Memory writes from environment-class inputs should be quarantined or marked. Reads from memory should not be treated as ground truth without provenance.</li>
+        <li>Tool execution. Every tool call should run with the smallest scope that makes the call useful. The agent shouldn't have a fully-permissioned API key when 90% of its work needs a read-only one. Action confirmation for irreversible operations is not optional.</li>
+        <li>Multi-agent coordination. If you have agents talking to other agents, you need authentication between them, and you need to assume that any one of them can be compromised. Heterogeneous models across agents help, because a jailbreak that works on one family often won't propagate cleanly to another.</li>
+        <li>Ecosystem. Treat every MCP server, every plugin, every tool integration like a third-party dependency. Sign manifests. Verify provenance. Read the natural-language tool descriptions, not just the schemas, because that's where the <a href="https://arxiv.org/html/2604.23338v1">Postmark MCP exploit</a> hid the BCC-the-attacker instruction.</li>
+        <li>Governance. Logs that record what the agent did but not why are not enough for accountability. You want behavioural monitoring that flags drift over time, and you want a clear answer to the question "if this agent does something harmful, who is responsible?" before it does.</li>
+      </ol>
+
+      <p>None of this is exotic. It's the kind of work security teams have done for decades against other systems. The novel bit is recognising that the agent is a system worth doing it for.</p>
+
+      <h2>What I'd put on the wall</h2>
+
+      <p>If I had to write one thing in marker on a whiteboard for a leadership team about to scale autonomy, it would be this.</p>
+
+      <p>The model is not the system. The system is the model plus its memory plus its tools plus its peers plus the protocols holding them together. Securing the model and calling it done is a category error, and the category error is the bug.</p>
+
+      <p>Once that lands, the rest of the work follows. You start asking which layer a given control protects. You start thinking about time as part of the threat model. You start treating tool outputs as untrusted, peer messages as untrusted, retrieved memory as untrusted, and you build the architecture that earns your trust back.</p>
+
+      <p>Most agent incidents in the next two years won't come from someone jailbreaking your model. They'll come from a tool the agent didn't know to distrust, a memory entry nobody audited, or a peer agent nobody authenticated. The herd is busy patching L1. The interesting work is everywhere else.</p>
+    </div>
+    <nav class="post__pager" aria-label="Previous and next essays">
+      <span class="post__pager-link post__pager-link--empty" aria-hidden="true"></span>
+      <a class="post__pager-link post__pager-link--next" href="/writing/agentic-org-chart-two-people-deep/"><span class="post__pager-label">Older →</span><span class="post__pager-title">The agentic org chart is two people deep</span></a>
+    </nav>
+    <div class="post__footer">
+      <a href="/writing/">← All notes</a>
+      <a href="/">Skella &amp; Co home</a>
+    </div>
+  </article>
+
+  </main>
+
+</div>
+
+</body>
+</html>

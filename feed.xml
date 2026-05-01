@@ -12,14 +12,83 @@
     <copyright>© 2026 Skella &amp; Co</copyright>
     <managingEditor>hello@skella.com.au (Jamie Skella)</managingEditor>
     <webMaster>hello@skella.com.au (Jamie Skella)</webMaster>
-    <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0930</lastBuildDate>
-    <pubDate>Tue, 21 Apr 2026 00:00:00 +0930</pubDate>
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0930</lastBuildDate>
+    <pubDate>Fri, 01 May 2026 00:00:00 +0930</pubDate>
     <ttl>1440</ttl>
     <image>
       <url>https://skella.com.au/skella-co-logo-310px.png</url>
       <title>Notes by Jamie Skella</title>
       <link>https://skella.com.au/writing/</link>
     </image>
+
+    <item>
+      <title>Your agents are your new attack surface</title>
+      <link>https://skella.com.au/writing/your-agents-are-your-new-attack-surface/</link>
+      <guid isPermaLink="true">https://skella.com.au/writing/your-agents-are-your-new-attack-surface/</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0930</pubDate>
+      <dc:creator>Jamie Skella</dc:creator>
+      <category>Agentic systems</category>
+      <description>Most teams are securing the model and shipping an insecure system. They&#x27;re tuning the LLM, running prompt injection eval suites, polishing the system prompt, then handing the resulting agent a browser, a credit card, a…</description>
+      <content:encoded><![CDATA[<p>Most teams are securing the model and shipping an insecure system. They're tuning the LLM, running prompt injection eval suites, polishing the system prompt, then handing the resulting agent a browser, a credit card, a memory store, and three other agents to coordinate with. The model isn't the surface anymore. The agent is.</p>
+
+      <p>I've spent the last year sitting in rooms where this confusion plays out. Someone asks "is the model jailbreak-resistant?" and the answer feels like the answer. It isn't. The model is one component in a system that now plans across days, writes to persistent memory, calls tools that move money, and trusts messages from peer agents. None of that surface is covered by red-teaming the LLM.</p>
+
+      <p>A new survey paper makes this concrete in a way I haven't seen before. Chu's <a href="https://arxiv.org/html/2604.23338v1">Layered Attack Surface Model</a> maps the agentic attack surface across seven layers: Foundation, Cognitive, Memory, Tool Execution, Multi-Agent Coordination, Ecosystem, and Governance. The point is that "prompt injection" is not one thing. The same label hides at least three different attacks on three different layers, each requiring a different control. Treat them as one and you'll under-defend at least two of them.</p>
+
+      <p>That's the bit operators need to internalise. Not the seven layers as such. The shape of the problem.</p>
+
+      <h2>The trust inversion nobody talks about</h2>
+
+      <p>The paper names something I've been gesturing at for a while without a clean term. They call it principal trust inversion.</p>
+
+      <p>The intended trust order in an agent deployment is roughly: developer, then operator, then user, then environment. The environment, meaning the websites the agent reads, the documents it retrieves, the tool outputs it consumes, is the least trusted thing in the chain. It's the open internet. It's email bodies. It's pull request descriptions. It's whatever was lying around in the docs folder.</p>
+
+      <p>In practice, almost every agent I've reviewed treats environment input as high-trust. The retrieved web page goes straight into the planning context. The tool's response is incorporated as if it were a fact. The peer agent's message is followed as if it came from the operator.</p>
+
+      <p>This is the bug. Not a model bug. An architecture bug.</p>
+
+      <p>A real example from the literature. The <a href="https://arxiv.org/html/2604.23338v1">GitHub Copilot remote code execution</a> chain wasn't a clever jailbreak. The agent read project files, those files contained instructions, and the agent followed them. Shell execution, in a routine code review session. The fix isn't a smarter model. The fix is treating tool returns as untrusted input and refusing to act on them without a trust mark.</p>
+
+      <p>That's what trust inversion looks like in production. The agent is doing what it was built to do. The system was just built wrong.</p>
+
+      <h2>Time is a security dimension</h2>
+
+      <p>The other thing the paper does well is take time seriously. Most existing security thinking treats attacks as instantaneous. You inject, you exploit, it happens in one inference call. Classical prompt injection lives here. So does most of the eval work.</p>
+
+      <p>Agentic systems are different because the gap between injection and exploitation can be enormous.</p>
+
+      <p>A document poisoned today writes a memory entry. Three weeks later, in an unrelated session, that memory is retrieved and shapes a decision. There is no single session in which you can see both halves of the attack. The injection looks like a normal write. The exploitation looks like a normal read. Cross-session memory poisoning is invisible to the kind of monitoring most teams have running.</p>
+
+      <p>It gets worse. A weight-level backdoor planted during fine-tuning produces no memory trail at all. It waits for an arbitrary trigger, which may never appear in your evaluations. Hubinger and colleagues at Anthropic have already shown that standard safety fine-tuning doesn't remove trained triggers. You can't grep for a behaviour that hasn't fired yet.</p>
+
+      <p>If you only defend against same-session attacks, you've defended against the easy ones.</p>
+
+      <h2>The seven things to actually check</h2>
+
+      <p>I'm wary of checklists for problems that are still moving. But operators are deploying these systems now, and "wait for the standards to settle" is not a posture I can recommend. Here is the version I'd run.</p>
+
+      <ol>
+        <li>Foundation. What model are you using, who trained it, and do you have any reason to trust the training data and fine-tuning pipeline? "It's a popular API" is not an answer.</li>
+        <li>Cognitive. Can you inspect the agent's plan before it executes? If your agent decomposes a goal into a sequence of tool calls, you want a verifier in the loop that flags plans which deviate from your stated policy, before any irreversible action runs.</li>
+        <li>Memory. Who can write to the agent's long-term memory, and what's the audit trail? Memory writes from environment-class inputs should be quarantined or marked. Reads from memory should not be treated as ground truth without provenance.</li>
+        <li>Tool execution. Every tool call should run with the smallest scope that makes the call useful. The agent shouldn't have a fully-permissioned API key when 90% of its work needs a read-only one. Action confirmation for irreversible operations is not optional.</li>
+        <li>Multi-agent coordination. If you have agents talking to other agents, you need authentication between them, and you need to assume that any one of them can be compromised. Heterogeneous models across agents help, because a jailbreak that works on one family often won't propagate cleanly to another.</li>
+        <li>Ecosystem. Treat every MCP server, every plugin, every tool integration like a third-party dependency. Sign manifests. Verify provenance. Read the natural-language tool descriptions, not just the schemas, because that's where the <a href="https://arxiv.org/html/2604.23338v1">Postmark MCP exploit</a> hid the BCC-the-attacker instruction.</li>
+        <li>Governance. Logs that record what the agent did but not why are not enough for accountability. You want behavioural monitoring that flags drift over time, and you want a clear answer to the question "if this agent does something harmful, who is responsible?" before it does.</li>
+      </ol>
+
+      <p>None of this is exotic. It's the kind of work security teams have done for decades against other systems. The novel bit is recognising that the agent is a system worth doing it for.</p>
+
+      <h2>What I'd put on the wall</h2>
+
+      <p>If I had to write one thing in marker on a whiteboard for a leadership team about to scale autonomy, it would be this.</p>
+
+      <p>The model is not the system. The system is the model plus its memory plus its tools plus its peers plus the protocols holding them together. Securing the model and calling it done is a category error, and the category error is the bug.</p>
+
+      <p>Once that lands, the rest of the work follows. You start asking which layer a given control protects. You start thinking about time as part of the threat model. You start treating tool outputs as untrusted, peer messages as untrusted, retrieved memory as untrusted, and you build the architecture that earns your trust back.</p>
+
+      <p>Most agent incidents in the next two years won't come from someone jailbreaking your model. They'll come from a tool the agent didn't know to distrust, a memory entry nobody audited, or a peer agent nobody authenticated. The herd is busy patching L1. The interesting work is everywhere else.</p>]]></content:encoded>
+    </item>
 
     <item>
       <title>The agentic org chart is two people deep</title>
