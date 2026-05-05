@@ -12,14 +12,73 @@
     <copyright>© 2026 Skella &amp; Co</copyright>
     <managingEditor>hello@skella.com.au (Jamie Skella)</managingEditor>
     <webMaster>hello@skella.com.au (Jamie Skella)</webMaster>
-    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0930</lastBuildDate>
-    <pubDate>Fri, 01 May 2026 00:00:00 +0930</pubDate>
+    <lastBuildDate>Tue, 05 May 2026 00:00:00 +0930</lastBuildDate>
+    <pubDate>Tue, 05 May 2026 00:00:00 +0930</pubDate>
     <ttl>1440</ttl>
     <image>
       <url>https://skella.com.au/skella-co-logo-310px.png</url>
       <title>Notes by Jamie Skella</title>
       <link>https://skella.com.au/writing/</link>
     </image>
+
+    <item>
+      <title>Ambition is the new bottleneck</title>
+      <link>https://skella.com.au/writing/ambition-is-the-new-bottleneck/</link>
+      <guid isPermaLink="true">https://skella.com.au/writing/ambition-is-the-new-bottleneck/</guid>
+      <pubDate>Tue, 05 May 2026 00:00:00 +0930</pubDate>
+      <dc:creator>Jamie Skella</dc:creator>
+      <category>Essays</category>
+      <description>When discussing AI with businesses, the conversation drifts quickly toward capability. What can it write? What can it code? How much of our current workflow can we hand over to it?</description>
+      <content:encoded><![CDATA[<p>When discussing AI with businesses, the conversation drifts quickly toward capability. What can it write? What can it code? How much of our current workflow can we hand over to it?</p>
+
+      <p>Reasonable questions. Increasingly incomplete ones.</p>
+
+      <p>As the capability curve steepens and the cost curve collapses, the more interesting question becomes less about what AI can do, and more about what we are prepared to attempt with it.</p>
+
+      <p>For most of modern business history, intelligence has been expensive. If you wanted a contract drafted, a market analysed, a prototype built, or a product shipped, you needed access to specialised people. Often many of them. You needed capital, time, management overhead, and enough confidence in the idea to justify the expense before you had much evidence that it would work.</p>
+
+      <p>This shaped the size of our ambition.</p>
+
+      <p>Many ideas were not rejected because they were bad. They were rejected because they were too expensive to test. They required too many people, too much coordination, too much specialist knowledge, or too much time away from the safe and sensible work already in front of us.</p>
+
+      <p>That constraint is now being dismantled.</p>
+
+      <p>A solo founder can use AI to build and operate software that would once have required a small team. A small business can produce research, workflows and automation that once needed an agency. A teacher can create personalised learning materials without waiting for a department or curriculum committee. A doctor can be supported by diagnostic systems that draw on more medical literature than any one person could read in a lifetime.</p>
+
+      <p>This is not because people have suddenly become ten times smarter. It is because the cost of accessing useful intelligence is falling dramatically.</p>
+
+      <p>When intelligence becomes cheap, ambition becomes the bottleneck.</p>
+
+      <p>That sounds like a motivational poster, but it is really an operating model shift.</p>
+
+      <p>For decades, companies have treated ambition as something to be moderated by available resources. What can we afford? Who do we have? What can this team realistically ship this quarter? Those constraints still matter, but they no longer mean what they used to. A growing amount of work that previously required budget approval, recruitment or an external agency can now be explored by one capable person with the right tools and enough judgement to use them well.</p>
+
+      <p>The danger is that we keep applying old constraints to new conditions.</p>
+
+      <p>If your roadmap was shaped in a world where software was expensive to build, research was slow to gather, and expertise was difficult to access, it may now be far too conservative. Not wrong, necessarily. Just scoped to a version of reality that is disappearing.</p>
+
+      <p>This is where many organisations will underperform. Not because they fail to adopt AI, but because they adopt it timidly. They will use it to make existing processes slightly faster, summarise slightly more meetings, and reduce slightly more cost. Useful, yes. Transformational, no.</p>
+
+      <p>The real opportunity is not doing the same work with fewer people. It is asking what work becomes possible when the old cost structure falls away.</p>
+
+      <p>The first wave of value will come from efficiency. That is already happening. The larger and more durable wave will come from people and organisations that aim at previously unreasonable problems. Drug discovery for small patient populations. Personalised education at scale. Software built for niches too small to justify a traditional product team.</p>
+
+      <p>None of these outcomes happen automatically.</p>
+
+      <p>Cheap intelligence does not create good judgement. It does not create taste, empathy for users, or moral seriousness about consequences. If everyone can generate plausible ideas, plausible interfaces and plausible strategies, the scarce capability becomes knowing which ones are worth pursuing.</p>
+
+      <p>Ambition chooses the target. Judgement decides whether it should exist.</p>
+
+      <p>There is also an ownership question hiding inside all of this. If your organisation becomes more ambitious only by renting every important capability from external platforms, you may simply be exchanging one constraint for another. You can move faster, but only while the API is available, the pricing works, and the vendor's incentives continue to align with your own.</p>
+
+      <p>That does not mean every business should run its own models. Most should not. But leaders need to understand the difference between using AI to build capability and using AI to deepen dependency. Those are not the same thing.</p>
+
+      <p>The practical question is not "how do we use AI?" That is too small.</p>
+
+      <p>The better question is this: if the cost of intelligence was no longer the limiting factor, what would we attempt next?</p>
+
+      <p>Start there.</p>]]></content:encoded>
+    </item>
 
     <item>
       <title>Your agents are your new attack surface</title>

@@ -26,6 +26,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://skella.com.au/writing/ambition-is-the-new-bottleneck/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://skella.com.au/writing/your-agents-are-your-new-attack-surface/</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>yearly</changefreq>

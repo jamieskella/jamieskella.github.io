@@ -15,6 +15,7 @@ Skella & Co helps organisations decide which systems to deploy, what they should
 
 ## Essays
 
+- [Ambition is the new bottleneck](https://skella.com.au/writing/ambition-is-the-new-bottleneck/) — 5 May 2026
 - [Your agents are your new attack surface](https://skella.com.au/writing/your-agents-are-your-new-attack-surface/) — 1 May 2026
 - [The agentic org chart is two people deep](https://skella.com.au/writing/agentic-org-chart-two-people-deep/) — 21 April 2026
 - [Strategy is what's left when code and design become free](https://skella.com.au/writing/strategy-when-code-and-design-become-free/) — 21 April 2026
