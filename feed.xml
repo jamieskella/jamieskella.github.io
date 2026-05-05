@@ -165,9 +165,11 @@
 
       <h2>What the old shape assumed</h2>
 
-      <p>The traditional hierarchy exists because coordination is hard. A CEO has a vision but can't personally talk to every engineer, every support rep, every analyst. So you add managers, then managers of managers. Each layer's job is to take intent from above and translate it into specific tasks below. Middle management is the translation layer. The person who turns a strategic priority into a sprint backlog. The team lead who turns a support philosophy into a ticket-handling process. Real work, when the execution layer is made of people who need direction to function.</p>
+      <p>The traditional hierarchy exists because coordination is hard. A CEO has a vision but can't personally talk to every engineer, every support rep, every analyst. So you add managers, then managers of managers. Each layer's job is to take intent from above and translate it into specific tasks below. Useful work, when the execution layer is made of people who need direction, context, and feedback to function.</p>
 
-      <p>What's shifted is that AI agents translate intent into tasks themselves. Give a well-configured agent system a goal, context, and constraints, and it decomposes the problem, plans the steps, and executes. Not perfectly. Supervision still required. But the supervision needed is lighter than what it replaces, and it operates at a different altitude. You're not managing tasks. You're managing outcomes.</p>
+      <p>Middle management, in this model, is the translation layer. The person who turns a strategic priority into a sprint backlog. The team lead who turns a support philosophy into a ticket-handling process. The legal coordinator who turns a GC's instincts into a review checklist. Translation work. Real work.</p>
+
+      <p>What's shifted is that AI agents translate intent into tasks themselves. Give a well-configured agent system a goal, context, and constraints, and it decomposes the problem, plans the steps, and executes. Not perfectly. Supervision still required. But the supervision is lighter than what it replaces, and it operates at a different altitude. You're not managing tasks. You're managing outcomes.</p>
 
       <h2>The shape that's emerging</h2>
 
@@ -182,6 +184,8 @@
       <h2>What this looks like in practice</h2>
 
       <p>Take a product team. Twelve people: PM, engineers, designer, researcher, QA, analyst, scrum master, support. Standard mid-size squad. In an agentic setup that's closer to three: a product lead who owns the roadmap, an operator running the agent systems for spec writing, code generation, test coverage and analytics, and maybe a designer doing the work that still genuinely benefits from a human eye. The other nine aren't fired in a weekend. Over a two-year horizon, you're not backfilling them when they leave.</p>
+
+      <p>Or take a customer support team of forty. That team exists because each interaction takes human time and volume is high. With a well-built agent fleet, you might run the same volume with five people: an operator managing the systems, two or three specialists handling the complex cases the agents escalate, and a lead who owns the overall customer experience and makes calls on policy. The other thirty-five positions don't get posted again.</p>
 
       <p>Legal review is instructive at the other end. One general counsel with a well-configured agent system can cover a workload that previously kept three or four junior lawyers busy. The GC supplies judgement: what's a real risk, what matters given the situation, when to push back on a clause. The agent handles the reading, the summarisation, the clause comparison, the first-pass flagging. Output per senior person goes up sharply.</p>
 
@@ -207,7 +211,7 @@
 
       <p>The organisations moving fast share one quality: the people at the top understand what agents can actually do, not in the abstract but in detail, and they've built the willingness to act on what that implies.</p>
 
-      <p>The ones that are stalling share a different quality. Everyone can see what's happening. The senior people know the translation layer is becoming automatable. The middle managers know their roles are changing. Nobody wants to say it out loud.</p>
+      <p>The ones that are stalling share a different quality. Everyone can see what's happening. The senior people know the translation layer is becoming automatable. The middle managers know their roles are changing. The operators they'd need to hire don't exist yet at scale. Nobody wants to say it out loud.</p>
 
       <p>The question isn't whether agentic systems will flatten your organisation. That's in motion regardless. The question is whether your team already knows, and is quietly hoping no one notices.</p>]]></content:encoded>
     </item>
