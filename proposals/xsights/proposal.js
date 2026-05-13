@@ -111,7 +111,6 @@
     main.appendChild(renderPrinciples(data));
     main.appendChild(renderParticipantModel(data));
     main.appendChild(renderStages(data));
-    main.appendChild(renderTimeline(data));
     main.appendChild(renderCadence(data));
     main.appendChild(renderPricing(data));
     main.appendChild(renderRisks(data));
@@ -134,7 +133,6 @@
   }
 
   function renderHero(data) {
-    const totalWeeks = data.stages.reduce((sum, s) => sum + s.weeks, 0);
     return el('section', { class: 'p-hero p-shell' },
       el('p', { class: 'p-hero__eyebrow' }, `Proposal · ${data.meta.client}`),
       el('h1', null, data.meta.title),
@@ -142,7 +140,6 @@
       el('dl', { class: 'p-hero__facts' },
         fact('Prepared by', data.meta.prepared_by),
         fact('Cadence', '3 days/week'),
-        fact('Full program', `${totalWeeks} weeks`),
         fact('Stages', String(data.stages.length))
       )
     );
@@ -212,8 +209,7 @@
           el('article', { class: 'stage' },
             el('div', { class: 'stage__head' },
               el('div', { class: 'stage__id' }, `Stage ${s.id.slice(1)}`),
-              el('h3', { class: 'stage__name' }, s.name),
-              el('div', { class: 'stage__weeks' }, `${s.weeks} weeks`)
+              el('h3', { class: 'stage__name' }, s.name)
             ),
             el('div', { class: 'stage__body' },
               el('p', null, s.summary),
@@ -231,12 +227,12 @@
     );
   }
 
-  // Gantt: live timeline that reflects the currently selected option.
-  function renderTimeline(data) {
-    const sec = section('Timeline', 'Visualised across weeks. Reflects the currently selected scope below.',
+  // Gantt: live timeline. Rendered inline beneath the option grid (not a section of its own).
+  function buildGanttHost() {
+    return el('div', { class: 'gantt-block' },
+      el('p', { class: 'gantt-block__label' }, 'Timeline for the selected scope'),
       el('div', { class: 'gantt', id: 'gantt-host' })
     );
-    return sec;
   }
 
   function paintGantt(data, selectedStageIds, stageWeeksOverride) {
@@ -323,7 +319,7 @@
     );
 
     const retainerBlock = el('div', { class: 'retainer' },
-      el('h3', { class: 'retainer__title' }, `What the retainer includes (${data.pricing.retainer.name})`),
+      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${fmtAUD(data.pricing.retainer.monthly)}/month`),
         ` (${data.pricing.retainer.day_equivalent}), billed ${data.pricing.retainer.billed}.`,
@@ -350,17 +346,13 @@
 
     const quote = el('dl', { class: 'quote', id: 'quote' });
 
-    const optsNote = el('p', { class: 'opts-note' },
-      'These week counts are conservative. They build in time for collaboration, review cycles, and dependencies on your end. Where workstreams move faster, the timeline compresses with them.'
-    );
-
     const sec = section('Pricing', 'Pick a scope. The summary and timeline update live.',
       el('div', { class: 'pricing' },
+        ratesTable,
         optToggle,
-        optsNote,
+        buildGanttHost(),
         quote,
-        retainerBlock,
-        ratesTable
+        retainerBlock
       )
     );
 
@@ -452,13 +444,17 @@
       qrow('Selected', `Option ${q.opt.id} · ${q.opt.name}`),
       qrow('Stages', q.opt.stages.join(', ')),
       qrow('Max duration', `${q.totalWeeks} weeks (≈ ${Math.ceil(q.totalWeeks / 4)} months)`),
+      el('p', { class: 'quote__note' },
+        'These week counts are conservative. They build in time for collaboration, review cycles, and dependencies on your end. Where workstreams move faster, the timeline compresses with them.'
+      ),
       el('div', { class: 'quote__sep' }),
+      qrow('Daily rate', `${fmtAUD(q.dayRate)}/day`),
       buildWeeklyRow(q, weeklyRate),
       buildRetainerToggleRow(q),
       el('p', { class: 'quote__note' },
         state.retainer
-          ? `Weekly rate reflects the long-program day rate (${fmtAUD(q.dayRate)}/day across 3 days/week), unlocked by the retainer. Retainer itself is ${fmtAUD(q.retainer)}/month, billed quarterly in advance. Cancel any time at the end of a quarter.`
-          : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day across 3 days/week). Add the retainer to drop to the long-program rate.`
+          ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
+          : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
       )
     );
 
@@ -480,18 +476,17 @@
   }
 
   function buildWeeklyRow(q, weeklyRate) {
+    const label = el('dt', null,
+      'Weekly rate ',
+      el('span', { class: 'quote__dt-meta' }, '(3 days/week in our case)')
+    );
     if (q.standardWeeklyRate && q.standardWeeklyRate !== weeklyRate) {
-      // Show old crossed out, new in brand colour
       const dd = el('dd', null);
       dd.innerHTML = `${strike(fmtAUD(q.standardWeeklyRate) + '/week')} <span class="quote__highlight">${fmtAUD(weeklyRate)}/week</span>`;
-      const row = el('div', { class: 'quote__row quote__row--weekly' },
-        el('dt', null, 'Weekly rate'),
-        dd
-      );
-      return row;
+      return el('div', { class: 'quote__row quote__row--weekly' }, label, dd);
     }
     return el('div', { class: 'quote__row quote__row--weekly' },
-      el('dt', null, 'Weekly rate'),
+      label,
       el('dd', null, `${fmtAUD(weeklyRate)}/week`)
     );
   }
@@ -502,7 +497,7 @@
     const label = el('label', { class: 'retainer__toggle' },
       el('input', { type: 'checkbox', id: 'retainer-check' }),
       el('span', { class: 'retainer__switch' }),
-      el('span', { class: 'retainer__toggle-label' }, state.retainer ? 'Included' : 'Add to reduce rate')
+      el('span', { class: 'retainer__toggle-label' }, state.retainer ? 'With Retainer' : 'No Retainer')
     );
     const dd = el('dd', null, label);
     row.append(dt, dd);

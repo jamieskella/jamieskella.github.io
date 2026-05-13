@@ -607,13 +607,18 @@ body.proposal { background: var(--bg); }
   color: var(--text);
 }
 
-/* Inter-grid note about conservative timelines */
-.opts-note {
+/* Gantt block sits inline beneath the option grid */
+.gantt-block {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.gantt-block__label {
   margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.55;
-  max-width: 52rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--soft);
 }
 
 /* Quote summary */
@@ -648,6 +653,7 @@ body.proposal { background: var(--bg); }
 }
 
 .quote__row dt { color: var(--muted); margin: 0; font-size: var(--step-0); }
+.quote__dt-meta { color: var(--soft); font-size: 0.8rem; margin-left: 0.15rem; }
 .quote__row dd { margin: 0; font-size: var(--step-1); font-weight: 400; font-variant-numeric: tabular-nums; }
 
 .quote__row--total dt { color: var(--text); font-size: var(--step-1); font-weight: 500; }
