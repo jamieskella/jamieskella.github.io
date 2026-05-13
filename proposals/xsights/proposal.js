@@ -300,7 +300,7 @@
         el('div', { class: 'principle' }, el('h3', null, 'Commitment'), el('p', null, c.commitment)),
         el('div', { class: 'principle' }, el('h3', null, 'Rhythm'), el('p', null, c.rhythm)),
         el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle)),
-        el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, (function(b){ b = b.replace(/monthly/gi, 'each 4 weeks'); if (!/stripe/i.test(b)) b = b.replace(/\.?\s*$/, '. Charged via Stripe.'); return b; })(c.billing)))
+        el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, 'Charged via Stripe each 4 weeks in advance, standard consultancy convention.'))
       )
     );
   }
@@ -322,8 +322,8 @@
       el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing Value')),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${fmtAUD(data.pricing.retainer.monthly)}/month`),
-        ` (${data.pricing.retainer.day_equivalent}), billed ${data.pricing.retainer.billed} via Stripe.`,
-        el('small', null, data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer reduces day rate to $$$1 across the engagement$2.'))
+        ` (${data.pricing.retainer.day_equivalent}).`,
+        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer reduces day rate to $$$1 across the engagement$2.'))
       ),
       el('ul', { class: 'retainer__includes' },
         ...data.pricing.retainer.includes.map(i => el('li', null, i))
@@ -435,7 +435,7 @@
     quote.append(
       qrow('Selected', `Option ${q.opt.id} · ${q.opt.name}`),
       qrow('Stages', q.opt.stages.join(', ')),
-      qrow('Max duration', `${q.totalWeeks} weeks (≈ ${Math.ceil(q.totalWeeks / 4)} months)`),
+      qrow('Max duration', `${q.totalWeeks} weeks`),
       el('p', { class: 'quote__note' },
         'Week counts are conservative. They build in padding for collaboration, review cycles, and dependencies on your end. Where workstreams move faster, the timeline compresses with them.'
       ),
