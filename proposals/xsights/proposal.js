@@ -322,10 +322,10 @@
       el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing value creation')),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${data.pricing.retainer.day_equivalent}, starting after the program completes.`),
-        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Day rate during the program reflects commitment to the retainer afterwards.'))
+        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Discounted day rate during the program reflects commitment to the retainer afterwards.'))
       ),
       el('ul', { class: 'retainer__includes' },
-        ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ')))
+        ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ').replace(/^Monthly analytics-driven recommendations from Pendo session insights\.?$/, 'Ongoing analysis and analytics-driven recommendations from Pendo session insights.')))
       ),
       el('p', { class: 'retainer__value' }, data.pricing.retainer.value_line)
     );
@@ -442,15 +442,10 @@
       qrow('Daily rate', `${fmtAUD(q.dayRate)}/day`),
       buildWeeklyRow(q, weeklyRate),
       buildRetainerToggleRow(q),
-      el('div', { class: 'quote__rateinfo' },
-        el('p', { class: 'quote__note quote__note--rateinfo' },
-          state.retainer
-            ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
-            : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
-        ),
+      el('p', { class: 'quote__note quote__note--rateinfo' },
         state.retainer
-          ? (function(){ const a = el('a', { class: 'quote__moreinfo', href: '#retainer-block' }, 'More info ↓'); a.addEventListener('click', (e) => { e.preventDefault(); const t = document.getElementById('retainer-block'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); return a; })()
-          : ''
+          ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
+          : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
       )
     );
 
@@ -488,9 +483,14 @@
     const label = el('label', { class: 'retainer__toggle' },
       el('input', { type: 'checkbox', id: 'retainer-check' }),
       el('span', { class: 'retainer__switch' }),
-      el('span', { class: 'retainer__toggle-label' }, state.retainer ? 'With Retainer' : 'No Retainer')
+      el('span', { class: 'retainer__toggle-label' }, 'Retainer')
     );
     const dd = el('dd', null, label);
+    if (state.retainer) {
+      const moreInfo = el('a', { class: 'quote__moreinfo', href: '#retainer-block' }, 'More info ↓');
+      moreInfo.addEventListener('click', (e) => { e.preventDefault(); const t = document.getElementById('retainer-block'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+      dd.appendChild(moreInfo);
+    }
     row.append(dt, dd);
     return row;
   }
