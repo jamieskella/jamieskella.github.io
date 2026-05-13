@@ -319,10 +319,11 @@
     );
 
     const retainerBlock = el('div', { id: 'retainer-block', class: 'retainer' },
-      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing value creation')),
+      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing value creation as Fractional Chief Experience Officer function')),
+      el('p', { class: 'retainer__explainer' }, 'A part-time executive engagement focused on the experience layer of your product, available to you and the team on a defined cadence.'),
       el('p', { class: 'retainer__price' },
-        el('strong', null, `${data.pricing.retainer.day_equivalent}, starting after the program completes.`),
-        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Discounted day rate during the program reflects commitment to the retainer afterwards.'))
+        el('span', { class: 'retainer__line' }, `${data.pricing.retainer.day_equivalent}, starting after the program completes.`),
+        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Discounted day rate during the program reflects commitment to the Fractional CXO engagement afterwards.'))
       ),
       el('ul', { class: 'retainer__includes' },
         ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ').replace(/^Monthly analytics-driven recommendations from Pendo session insights\.?$/, 'Ongoing analysis and analytics-driven recommendations from Pendo session insights.')))
@@ -337,7 +338,7 @@
       )),
       el('tbody', null,
         ...data.pricing.day_rates.map(r => el('tr', null,
-          el('td', null, r.shape),
+          el('td', null, r.shape.replace(/^Long program \(9\+ months\) or program with retainer attached$/, 'Long program (9+ months) or Program with Fractional CXO continuation')),
           el('td', { style: 'text-align: right' }, fmtAUD(r.rate))
         ))
       )
@@ -483,14 +484,12 @@
     const label = el('label', { class: 'retainer__toggle' },
       el('input', { type: 'checkbox', id: 'retainer-check' }),
       el('span', { class: 'retainer__switch' }),
-      el('span', { class: 'retainer__toggle-label' }, 'Retainer')
+      el('span', { class: 'retainer__toggle-label' }, 'Fractional CXO')
     );
     const dd = el('dd', null, label);
-    if (state.retainer) {
-      const moreInfo = el('a', { class: 'quote__moreinfo', href: '#retainer-block' }, 'More info ↓');
-      moreInfo.addEventListener('click', (e) => { e.preventDefault(); const t = document.getElementById('retainer-block'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-      dd.appendChild(moreInfo);
-    }
+    const moreInfo = el('a', { class: 'quote__moreinfo', href: '#retainer-block' }, 'More info ↓');
+    moreInfo.addEventListener('click', (e) => { e.preventDefault(); const t = document.getElementById('retainer-block'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    dd.appendChild(moreInfo);
     row.append(dt, dd);
     return row;
   }
@@ -531,7 +530,7 @@
         ...data.risks.map((r) =>
           el('li', { class: 'risk' },
             el('p', { class: 'risk__title' }, r.risk),
-            el('p', { class: 'risk__body' }, r.mitigation)
+            el('p', { class: 'risk__body' }, r.mitigation.replace(/Retainer provides/g, 'Fractional CXO engagement provides').replace(/Retainer covers/g, 'Fractional CXO engagement covers'))
           )
         )
       )
@@ -602,7 +601,7 @@
       `We're moving forward with the proposal.`,
       ``,
       `Selected: Option ${p.option_id || ''}, ${p.option_name || ''}`,
-      `Retainer: ${p.retainer ? 'yes' : 'no'}`,
+      `Fractional CXO: ${p.retainer ? 'yes' : 'no'}`,
       `Approx. max duration: ${p.weeks || ''} weeks`,
       ``,
       `Next steps from your end, please.`,
