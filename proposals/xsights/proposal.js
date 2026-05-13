@@ -467,8 +467,8 @@
       buildRetainerToggleRow(q),
       el('p', { class: 'quote__note quote__note--rateinfo' },
         state.retainer
-          ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
-          : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
+          ? `Reduced program rate (${fmtAUD(q.dayRate)}/day).`
+          : `Standard program rate (${fmtAUD(q.dayRate)}/day).`
       )
     );
 
