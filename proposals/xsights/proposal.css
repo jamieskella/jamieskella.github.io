@@ -445,14 +445,15 @@ body.proposal { background: var(--bg); }
 }
 
 .gantt__weeks {
-  display: grid;
-  grid-template-columns: repeat(var(--gantt-weeks, 21), 1fr);
+  position: relative;
+  height: 1.2rem;
   font-size: 0.65rem;
   color: var(--soft);
   text-align: center;
 }
 
-.gantt__weeks span { padding: 0.25rem 0; }
+.gantt__weeks span { position: absolute; top: 0; padding: 0.25rem 0; transform: translateX(-50%); white-space: nowrap; }
+.gantt__weeks span:first-child { transform: translateX(0); }
 
 /* ---------- Pricing builder ----------------------------------------- */
 .pricing {

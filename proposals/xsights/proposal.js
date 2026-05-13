@@ -285,7 +285,29 @@
     const weekScale = el('div', { class: 'gantt__weekscale' },
       el('div', null, ''),
       el('div', { class: 'gantt__weeks', style: `--gantt-weeks:${weeks}` },
-        ...(function(){ var out = []; var start = new Date(Date.UTC(2026, 4, 25)); var lastMonth = -1; for (var i = 0; i < weeks; i++) { var d = new Date(start); d.setUTCDate(start.getUTCDate() + i * 7); var m = d.getUTCMonth(); var label = (m !== lastMonth) ? d.toLocaleString('en-AU', { month: 'short', timeZone: 'UTC' }) : ''; lastMonth = m; out.push(el('span', null, label)); } return out; })()
+        ...(function(){
+          var out = [];
+          var start = new Date(Date.UTC(2026, 4, 25));
+          var totalDays = weeks * 7;
+          // Anchor labels to the first of each month within range. If the program starts mid-month, also emit a label at offset 0 for the starting month, but only if it won't collide with the next first-of-month label.
+          var firstDayOfStartMonth = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + 1, 1));
+          var daysUntilNextMonth = Math.round((firstDayOfStartMonth - start) / 86400000);
+          if (daysUntilNextMonth >= 14) {
+            out.push(el('span', { style: 'left:0%' }, ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][start.getUTCMonth()]));
+          }
+          var y = start.getUTCFullYear();
+          var m = start.getUTCMonth() + 1;
+          for (var i = 0; i < 24; i++) {
+            var first = new Date(Date.UTC(y, m, 1));
+            var dayOffset = Math.round((first - start) / 86400000);
+            if (dayOffset >= totalDays) break;
+            var pct = (dayOffset / totalDays) * 100;
+            out.push(el('span', { style: 'left:' + pct + '%' }, ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][first.getUTCMonth()]));
+            m += 1;
+            if (m > 11) { m = 0; y += 1; }
+          }
+          return out;
+        })()
       )
     );
     grid.appendChild(weekScale);
