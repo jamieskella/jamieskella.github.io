@@ -112,8 +112,8 @@
     main.appendChild(renderParticipantModel(data));
     main.appendChild(renderStages(data));
     main.appendChild(renderCadence(data));
-    main.appendChild(renderPricing(data));
     main.appendChild(renderRisks(data));
+    main.appendChild(renderPricing(data));
     /* Accept section removed; conversation continues out-of-band */ // main.appendChild(renderAccept(data));
     root.appendChild(main);
 
