@@ -140,7 +140,7 @@
       el('dl', { class: 'p-hero__facts' },
         fact('Prepared by', data.meta.prepared_by),
         fact('Cadence', '3 days/week'),
-        fact('Stages', String(data.stages.length))
+        fact('Start date', '25 May 2026')
       )
     );
   }
@@ -266,7 +266,7 @@
       const leftPct = active ? (cursor / weeks) * 100 : 0;
 
       const row = el('div', { class: 'gantt__row' },
-        el('div', { class: 'gantt__label' }, `${s.id}. ${s.name.replace(/\s*\u2014\s*/g, ', ')}`),
+        el('div', { class: 'gantt__label' }, `${s.id}. ${s.name.replace(/\s*\u2014\s*/g, ', ').replace(/XLM\s+/g, '')}`),
         el('div', { class: 'gantt__track' },
           active
             ? el('div', {
@@ -285,7 +285,7 @@
     const weekScale = el('div', { class: 'gantt__weekscale' },
       el('div', null, ''),
       el('div', { class: 'gantt__weeks', style: `--gantt-weeks:${weeks}` },
-        ...Array.from({ length: weeks }, (_, i) => el('span', null, String(i + 1)))
+        ...(function(){ var out = []; var start = new Date(Date.UTC(2026, 4, 25)); var lastMonth = -1; for (var i = 0; i < weeks; i++) { var d = new Date(start); d.setUTCDate(start.getUTCDate() + i * 7); var m = d.getUTCMonth(); var label = (m !== lastMonth) ? d.toLocaleString('en-AU', { month: 'short', timeZone: 'UTC' }) : ''; lastMonth = m; out.push(el('span', null, label)); } return out; })()
       )
     );
     grid.appendChild(weekScale);
