@@ -300,7 +300,7 @@
         el('div', { class: 'principle' }, el('h3', null, 'Commitment'), el('p', null, c.commitment)),
         el('div', { class: 'principle' }, el('h3', null, 'Rhythm'), el('p', null, c.rhythm)),
         el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle)),
-        el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, c.billing))
+        el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, (function(b){ b = b.replace(/monthly/gi, 'each 4 weeks'); if (!/stripe/i.test(b)) b = b.replace(/\.?\s*$/, '. Charged via Stripe.'); return b; })(c.billing)))
       )
     );
   }
@@ -319,11 +319,11 @@
     );
 
     const retainerBlock = el('div', { class: 'retainer' },
-      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name),
+      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing Value')),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${fmtAUD(data.pricing.retainer.monthly)}/month`),
         ` (${data.pricing.retainer.day_equivalent}), billed ${data.pricing.retainer.billed} via Stripe.`,
-        el('small', null, data.pricing.retainer.discount_note)
+        el('small', null, data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer reduces day rate to $$$1 across the engagement$2.'))
       ),
       el('ul', { class: 'retainer__includes' },
         ...data.pricing.retainer.includes.map(i => el('li', null, i))
@@ -334,12 +334,12 @@
     const ratesTable = el('table', { class: 'rates' },
       el('thead', null, el('tr', null,
         el('th', null, 'Engagement shape'),
-        el('th', null, 'Day rate (AUD)')
+        el('th', { style: 'text-align: right' }, 'Day rate (AUD)')
       )),
       el('tbody', null,
         ...data.pricing.day_rates.map(r => el('tr', null,
           el('td', null, r.shape),
-          el('td', null, fmtAUD(r.rate))
+          el('td', { style: 'text-align: right' }, fmtAUD(r.rate))
         ))
       )
     );
@@ -349,7 +349,6 @@
     const sec = section('Pricing', null,
       el('div', { class: 'pricing' },
         ratesTable,
-        el('p', { class: 'pricing__lead' }, 'Pick a scope. The summary and timeline update live.'),
         optToggle,
         buildGanttHost(),
         quote,
@@ -438,13 +437,13 @@
       qrow('Stages', q.opt.stages.join(', ')),
       qrow('Max duration', `${q.totalWeeks} weeks (≈ ${Math.ceil(q.totalWeeks / 4)} months)`),
       el('p', { class: 'quote__note' },
-        'These week counts are conservative. They build in time for collaboration, review cycles, and dependencies on your end. Where workstreams move faster, the timeline compresses with them.'
+        'Week counts are conservative. They build in padding for collaboration, review cycles, and dependencies on your end. Where workstreams move faster, the timeline compresses with them.'
       ),
       el('div', { class: 'quote__sep' }),
       qrow('Daily rate', `${fmtAUD(q.dayRate)}/day`),
       buildWeeklyRow(q, weeklyRate),
       buildRetainerToggleRow(q),
-      el('p', { class: 'quote__note' },
+      el('p', { class: 'quote__note quote__note--rateinfo' },
         state.retainer
           ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
           : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
@@ -481,7 +480,7 @@
 
   function buildRetainerToggleRow(q) {
     const row = el('div', { class: 'quote__row quote__row--toggle' });
-    const dt = el('dt', null, 'Retainer');
+    const dt = el('dt', null, '');
     const label = el('label', { class: 'retainer__toggle' },
       el('input', { type: 'checkbox', id: 'retainer-check' }),
       el('span', { class: 'retainer__switch' }),

@@ -857,3 +857,5 @@ body.proposal { background: var(--bg); }
   .proposal-root[hidden] { display: block !important; }
   body { background: #fff; }
 }
+
+.quote__note--rateinfo { text-align: right; }
