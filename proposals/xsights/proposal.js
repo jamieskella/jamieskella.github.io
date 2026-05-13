@@ -191,7 +191,7 @@
           ...m.tiers.map(t =>
             el('tr', null,
               el('td', { 'data-label': 'Tier' }, t.tier),
-              el('td', { 'data-label': 'Mode' }, t.mode),
+              el('td', { 'data-label': 'Mode' }, t.mode.replace(/structured conduit interviews/g, 'structured conduit feedback loops')),
               el('td', { 'data-label': 'Confidence' }, t.confidence),
               el('td', { 'data-label': 'Cost' }, t.cost)
             )
@@ -212,7 +212,7 @@
               el('h3', { class: 'stage__name' }, s.name.replace(/\s*\u2014\s*/g, ', '))
             ),
             el('div', { class: 'stage__body' },
-              el('p', null, s.summary),
+              el('p', null, s.summary.replace(/Domain immersion via Michelle\./g, 'Domain immersion via Michelle, team, and any external resources available.').replace(/Conduit interviews across the three archetypes \(frontline, manager\/vet, business\)\./g, 'Interviews across key stakeholder archetypes.')),
               s.note ? el('p', { class: 'stage__note' }, s.note) : null,
               el('div', null,
                 el('div', { class: 'stage__id', style: 'margin-bottom:0.3rem' }, 'Deliverables'),
@@ -299,7 +299,7 @@
       el('div', { class: 'principles' },
         el('div', { class: 'principle' }, el('h3', null, 'Commitment'), el('p', null, c.commitment)),
         el('div', { class: 'principle' }, el('h3', null, 'Rhythm'), el('p', null, c.rhythm)),
-        el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle)),
+        el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle.replace(/Treated as an embedded collaborator for soundboarding and research design\./g, 'Treated as an embedded collaborator for soundboarding and research design and internal testing.'))),
         el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, 'Charged via Stripe each 4 weeks in advance, standard consultancy convention.'))
       )
     );
@@ -326,7 +326,7 @@
         el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Discounted day rate during the program reflects commitment to the Fractional CXO engagement afterwards.'))
       ),
       el('ul', { class: 'retainer__includes' },
-        ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ').replace(/^Monthly analytics-driven recommendations from Pendo session insights\.?$/, 'Ongoing analysis and analytics-driven recommendations from Pendo session insights.')))
+        ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ').replace(/^Monthly analytics-driven recommendations from Pendo session insights\.?$/, 'Ongoing analysis and analytics-driven recommendations from Pendo session insights.').replace(/^Direct access for Michelle and the dev team on design questions, unblocks, and rapid critiques\.?$/, 'Direct access for stakeholders and the dev team on design questions, unblocks, and rapid critiques.')))
       ),
       el('p', { class: 'retainer__value' }, data.pricing.retainer.value_line)
     );
