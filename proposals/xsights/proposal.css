@@ -230,9 +230,11 @@ body.proposal { background: var(--bg); }
 
 .p-section__sub {
   color: var(--muted);
-  font-size: var(--step-1);
+  font-size: 1.05rem;
+  line-height: 1.55;
   margin: 0 0 2rem;
-  max-width: 40rem;
+  max-width: 52rem;
+  text-wrap: pretty;
 }
 
 .p-prose p { margin: 0 0 1rem; }
@@ -497,8 +499,10 @@ body.proposal { background: var(--bg); }
 }
 
 .opt__meta {
-  font-size: 0.85rem;
-  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--soft);
 }
 
 .opt__sum {
@@ -603,6 +607,15 @@ body.proposal { background: var(--bg); }
   color: var(--text);
 }
 
+/* Inter-grid note about conservative timelines */
+.opts-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 52rem;
+}
+
 /* Quote summary */
 .quote {
   border: 1px solid var(--brand);
@@ -612,6 +625,20 @@ body.proposal { background: var(--bg); }
   display: grid;
   gap: 0.75rem;
 }
+
+.quote__row--weekly dd {
+  font-size: var(--step-1);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.quote__highlight {
+  color: var(--brand);
+}
+
+.quote__row--toggle dd { display: flex; justify-content: flex-end; }
+.quote__row--toggle .retainer__toggle { font-size: 0.9rem; color: var(--muted); }
+.retainer__toggle-label { white-space: nowrap; }
 
 .quote__row {
   display: flex;

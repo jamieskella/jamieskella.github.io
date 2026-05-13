@@ -323,14 +323,7 @@
     );
 
     const retainerBlock = el('div', { class: 'retainer' },
-      el('div', { class: 'retainer__head' },
-        el('h3', { class: 'retainer__title' }, data.pricing.retainer.name),
-        el('label', { class: 'retainer__toggle' },
-          el('input', { type: 'checkbox', id: 'retainer-check' }),
-          el('span', { class: 'retainer__switch' }),
-          el('span', null, 'Add retainer')
-        )
-      ),
+      el('h3', { class: 'retainer__title' }, `What the retainer includes (${data.pricing.retainer.name})`),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${fmtAUD(data.pricing.retainer.monthly)}/month`),
         ` (${data.pricing.retainer.day_equivalent}), billed ${data.pricing.retainer.billed}.`,
@@ -357,35 +350,33 @@
 
     const quote = el('dl', { class: 'quote', id: 'quote' });
 
-    const sec = section('Pricing', 'Pick a scope. Toggle the retainer on or off. The quote and timeline update live.',
+    const optsNote = el('p', { class: 'opts-note' },
+      'These week counts are conservative. They build in time for collaboration, review cycles, and dependencies on your end. Where workstreams move faster, the timeline compresses with them.'
+    );
+
+    const sec = section('Pricing', 'Pick a scope. The summary and timeline update live.',
       el('div', { class: 'pricing' },
         optToggle,
+        optsNote,
+        quote,
         retainerBlock,
-        ratesTable,
-        quote
+        ratesTable
       )
     );
 
-    // Wire interactions after the elements exist
-    setTimeout(() => {
-      const checkbox = $('#retainer-check');
-      checkbox.checked = state.retainer;
-      checkbox.addEventListener('change', () => {
-        state.retainer = checkbox.checked;
-        update(data);
-      });
-      update(data);
-    }, 0);
+    // First paint of the summary (which builds the retainer toggle).
+    setTimeout(() => update(data), 0);
 
     return sec;
 
     function buildOption(o) {
+      const stageCount = o.stages.length;
       const optEl = el('label', { class: 'opt', 'data-id': o.id },
         el('input', { type: 'radio', name: 'opt', value: o.id }),
         el('div', { class: 'opt__check' }),
         el('div', { class: 'opt__id' }, `Option ${o.id}`),
         el('div', { class: 'opt__name' }, o.name),
-        el('div', { class: 'opt__meta' }, `${o.weeks} weeks · ${fmtAUD(o.cost)}`),
+        el('div', { class: 'opt__meta' }, `${stageCount} stage${stageCount === 1 ? '' : 's'}`),
         el('p', { class: 'opt__sum' }, o.summary)
       );
       optEl.addEventListener('click', (e) => {
@@ -426,6 +417,8 @@
     return {
       opt,
       totalWeeks,
+      dayRate: state.retainer ? retainerRate : standardRate,
+      standardWeeklyRate: state.retainer ? standardRate * 3 : null,
       baseProgram,
       discountedProgram,
       programCost: state.retainer ? discountedProgram : baseProgram,
@@ -442,46 +435,78 @@
     $$('.opt').forEach(o => o.classList.toggle('is-selected', o.dataset.id === state.optionId));
 
     // Day-rate table highlight
-    const longProgramRow = $$('.rates tbody tr')[2];
-    const standardRow = $$('.rates tbody tr')[1];
-    if (longProgramRow && standardRow) {
-      longProgramRow.classList.toggle('is-active', state.retainer);
-      standardRow.classList.toggle('is-active', !state.retainer);
-    }
+    const tbodyRows = $$('.rates tbody tr');
+    const standardRow = tbodyRows.find(r => /standard/i.test(r.cells[0]?.textContent || ''));
+    const longProgramRow = tbodyRows.find(r => /long program/i.test(r.cells[0]?.textContent || ''));
+    tbodyRows.forEach(r => r.classList.remove('is-active'));
+    if (state.retainer && longProgramRow) longProgramRow.classList.add('is-active');
+    else if (standardRow) standardRow.classList.add('is-active');
 
     const q = computeQuote(data);
+    const weeklyRate = q.dayRate * 3; // 3 days/week
 
-    // Repaint quote
+    // Repaint summary card
     const quote = $('#quote');
     quote.innerHTML = '';
     quote.append(
       qrow('Selected', `Option ${q.opt.id} · ${q.opt.name}`),
       qrow('Stages', q.opt.stages.join(', ')),
-      qrow('Duration', `${q.totalWeeks} weeks (~${Math.ceil(q.totalWeeks / 4)} months)`),
+      qrow('Max duration', `${q.totalWeeks} weeks (≈ ${Math.ceil(q.totalWeeks / 4)} months)`),
       el('div', { class: 'quote__sep' }),
-      q.programSaving > 0
-        ? qrow('Program (discounted via retainer)', `${strike(fmtAUD(q.baseProgram))} ${fmtAUD(q.programCost)}`)
-        : qrow('Program', fmtAUD(q.programCost)),
-      q.retainer > 0
-        ? qrow('Retainer', `${fmtAUD(q.retainer)}/month · billed quarterly`)
-        : null,
-      q.retainerForEngagement > 0
-        ? qrow(`Retainer over ${q.retainerMonths} months`, fmtAUD(q.retainerForEngagement))
-        : null,
-      el('div', { class: 'quote__sep' }),
-      qrowTotal('Total through engagement', fmtAUD(q.grandThroughEngagement)),
+      buildWeeklyRow(q, weeklyRate),
+      buildRetainerToggleRow(q),
       el('p', { class: 'quote__note' },
         state.retainer
-          ? `Retainer continues at ${fmtAUD(q.retainer)}/month after the engagement for ongoing custodianship. Cancel any time at the end of a quarter.`
-          : 'Add the retainer to unlock the long-program day rate and trigger a discount on the program above.'
+          ? `Weekly rate reflects the long-program day rate (${fmtAUD(q.dayRate)}/day across 3 days/week), unlocked by the retainer. Retainer itself is ${fmtAUD(q.retainer)}/month, billed quarterly in advance. Cancel any time at the end of a quarter.`
+          : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day across 3 days/week). Add the retainer to drop to the long-program rate.`
       )
     );
+
+    // Wire the toggle in the summary
+    const cb = $('#retainer-check');
+    if (cb) {
+      cb.checked = state.retainer;
+      cb.addEventListener('change', () => {
+        state.retainer = cb.checked;
+        update(data);
+      });
+    }
 
     // Repaint Gantt
     paintGantt(data, q.opt.stages, q.opt.stage_weeks_override);
 
     // Stash for accept CTA
     window.__quote = q;
+  }
+
+  function buildWeeklyRow(q, weeklyRate) {
+    if (q.standardWeeklyRate && q.standardWeeklyRate !== weeklyRate) {
+      // Show old crossed out, new in brand colour
+      const dd = el('dd', null);
+      dd.innerHTML = `${strike(fmtAUD(q.standardWeeklyRate) + '/week')} <span class="quote__highlight">${fmtAUD(weeklyRate)}/week</span>`;
+      const row = el('div', { class: 'quote__row quote__row--weekly' },
+        el('dt', null, 'Weekly rate'),
+        dd
+      );
+      return row;
+    }
+    return el('div', { class: 'quote__row quote__row--weekly' },
+      el('dt', null, 'Weekly rate'),
+      el('dd', null, `${fmtAUD(weeklyRate)}/week`)
+    );
+  }
+
+  function buildRetainerToggleRow(q) {
+    const row = el('div', { class: 'quote__row quote__row--toggle' });
+    const dt = el('dt', null, 'Retainer');
+    const label = el('label', { class: 'retainer__toggle' },
+      el('input', { type: 'checkbox', id: 'retainer-check' }),
+      el('span', { class: 'retainer__switch' }),
+      el('span', { class: 'retainer__toggle-label' }, state.retainer ? 'Included' : 'Add to reduce rate')
+    );
+    const dd = el('dd', null, label);
+    row.append(dt, dd);
+    return row;
   }
 
   function qrow(label, value) {
