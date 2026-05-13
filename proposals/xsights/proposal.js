@@ -318,12 +318,11 @@
       ...data.pricing.options.map(o => buildOption(o))
     );
 
-    const retainerBlock = el('div', { class: 'retainer' },
+    const retainerBlock = el('div', { id: 'retainer-block', class: 'retainer' },
       el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing Value')),
       el('p', { class: 'retainer__price' },
-        el('strong', null, `${fmtAUD(data.pricing.retainer.monthly)}/month`),
-        ` (${data.pricing.retainer.day_equivalent}).`,
-        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer reduces day rate to $$$1 across the engagement$2.'))
+        el('strong', null, `${data.pricing.retainer.day_equivalent}.`),
+        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer agreement reduces day rate across the engagement$2.'))
       ),
       el('ul', { class: 'retainer__includes' },
         ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ')))
@@ -443,10 +442,15 @@
       qrow('Daily rate', `${fmtAUD(q.dayRate)}/day`),
       buildWeeklyRow(q, weeklyRate),
       buildRetainerToggleRow(q),
-      el('p', { class: 'quote__note quote__note--rateinfo' },
+      el('div', { class: 'quote__rateinfo' },
+        el('p', { class: 'quote__note quote__note--rateinfo' },
+          state.retainer
+            ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
+            : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
+        ),
         state.retainer
-          ? `Weekly rate reflects reduced rate (${fmtAUD(q.dayRate)}/day).`
-          : `Weekly rate uses the standard program day rate (${fmtAUD(q.dayRate)}/day).`
+          ? (function(){ const a = el('a', { class: 'quote__moreinfo', href: '#retainer-block' }, 'More info ↓'); a.addEventListener('click', (e) => { e.preventDefault(); const t = document.getElementById('retainer-block'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); return a; })()
+          : ''
       )
     );
 
