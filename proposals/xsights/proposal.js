@@ -319,7 +319,7 @@
     );
 
     const retainerBlock = el('div', { id: 'retainer-block', class: 'retainer' },
-      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing Value')),
+      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing value creation')),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${data.pricing.retainer.day_equivalent}, starting after the program completes.`),
         el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Day rate during the program reflects commitment to the retainer afterwards.'))
