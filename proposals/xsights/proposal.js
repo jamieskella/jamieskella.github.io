@@ -127,7 +127,7 @@
       ),
       el('div', { class: 'p-bar__meta' },
         el('div', null, `Prepared for ${data.meta.prepared_for}`),
-        el('div', null, `${formatDate(data.meta.date_iso)} · valid to ${formatDate(data.meta.valid_until_iso)}`)
+        el('div', null, formatDate(data.meta.date_iso))
       )
     );
   }
@@ -158,7 +158,7 @@
       el('div', { class: 'p-prose' },
         el('p', null, data.overview.intro),
         el('p', null, data.overview.cadence),
-        el('p', null, data.overview.deliverable_scope),
+        el('p', null, data.overview.deliverable_scope.replace(/Deliverables include(?! but aren)/, "Deliverables include but aren't limited to")),
         el('p', null, data.overview.responsibility)
       )
     );
@@ -190,10 +190,10 @@
         el('tbody', null,
           ...m.tiers.map(t =>
             el('tr', null,
-              el('td', null, t.tier),
-              el('td', null, t.mode),
-              el('td', null, t.confidence),
-              el('td', null, t.cost)
+              el('td', { 'data-label': 'Tier' }, t.tier),
+              el('td', { 'data-label': 'Mode' }, t.mode),
+              el('td', { 'data-label': 'Confidence' }, t.confidence),
+              el('td', { 'data-label': 'Cost' }, t.cost)
             )
           )
         )
@@ -322,7 +322,7 @@
       el('h3', { class: 'retainer__title' }, data.pricing.retainer.name),
       el('p', { class: 'retainer__price' },
         el('strong', null, `${fmtAUD(data.pricing.retainer.monthly)}/month`),
-        ` (${data.pricing.retainer.day_equivalent}), billed ${data.pricing.retainer.billed}.`,
+        ` (${data.pricing.retainer.day_equivalent}), billed ${data.pricing.retainer.billed} via Stripe.`,
         el('small', null, data.pricing.retainer.discount_note)
       ),
       el('ul', { class: 'retainer__includes' },
@@ -346,9 +346,10 @@
 
     const quote = el('dl', { class: 'quote', id: 'quote' });
 
-    const sec = section('Pricing', 'Pick a scope. The summary and timeline update live.',
+    const sec = section('Pricing', null,
       el('div', { class: 'pricing' },
         ratesTable,
+        el('p', { class: 'pricing__lead' }, 'Pick a scope. The summary and timeline update live.'),
         optToggle,
         buildGanttHost(),
         quote,
@@ -426,14 +427,6 @@
     // Option highlight
     $$('.opt').forEach(o => o.classList.toggle('is-selected', o.dataset.id === state.optionId));
 
-    // Day-rate table highlight
-    const tbodyRows = $$('.rates tbody tr');
-    const standardRow = tbodyRows.find(r => /standard/i.test(r.cells[0]?.textContent || ''));
-    const longProgramRow = tbodyRows.find(r => /long program/i.test(r.cells[0]?.textContent || ''));
-    tbodyRows.forEach(r => r.classList.remove('is-active'));
-    if (state.retainer && longProgramRow) longProgramRow.classList.add('is-active');
-    else if (standardRow) standardRow.classList.add('is-active');
-
     const q = computeQuote(data);
     const weeklyRate = q.dayRate * 3; // 3 days/week
 
@@ -478,13 +471,8 @@
   function buildWeeklyRow(q, weeklyRate) {
     const label = el('dt', null,
       'Weekly rate ',
-      el('span', { class: 'quote__dt-meta' }, '(3 days/week in our case)')
+      el('span', { class: 'quote__dt-meta' }, '(3 days/week)')
     );
-    if (q.standardWeeklyRate && q.standardWeeklyRate !== weeklyRate) {
-      const dd = el('dd', null);
-      dd.innerHTML = `${strike(fmtAUD(q.standardWeeklyRate) + '/week')} <span class="quote__highlight">${fmtAUD(weeklyRate)}/week</span>`;
-      return el('div', { class: 'quote__row quote__row--weekly' }, label, dd);
-    }
     return el('div', { class: 'quote__row quote__row--weekly' },
       label,
       el('dd', null, `${fmtAUD(weeklyRate)}/week`)
@@ -550,12 +538,7 @@
   // ---------- Accept CTA ------------------------------------------------
   function renderAccept(data) {
     const msg = el('p', { class: 'accept__msg', id: 'accept-msg' });
-    const btn = el('button', { class: 'accept__btn', id: 'accept-btn' }, 'Accept this proposal');
-    const mailLink = el('a', {
-      class: 'accept__alt',
-      id: 'accept-mailto',
-      href: '#'
-    }, 'Or send via email');
+    const btn = el('button', { class: 'accept__btn', id: 'accept-btn' }, 'Email Jamie to accept');
 
     btn.addEventListener('click', async () => {
       btn.disabled = true;
@@ -598,22 +581,10 @@
       }
     });
 
-    mailLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      const q = window.__quote;
-      window.location.href = buildMailto(data, {
-        option_id: q.opt.id,
-        option_name: q.opt.name,
-        retainer: state.retainer,
-        weeks: q.totalWeeks,
-        total: q.grandThroughEngagement
-      });
-    });
-
     return section('Ready to move forward', null,
       el('div', { class: 'accept' },
         el('h3', null, 'Accept this proposal'),
-        el('div', { class: 'accept__row' }, btn, mailLink),
+        el('div', { class: 'accept__row' }, btn),
         msg
       )
     );
@@ -629,8 +600,7 @@
       ``,
       `Selected: Option ${p.option_id || ''} — ${p.option_name || ''}`,
       `Retainer: ${p.retainer ? 'yes' : 'no'}`,
-      `Duration: ${p.weeks || ''} weeks`,
-      `Indicative total: ${typeof p.total === 'number' ? fmtAUD(p.total) : ''}`,
+      `Approx. max duration: ${p.weeks || ''} weeks`,
       ``,
       `Next steps from your end, please.`,
       ``

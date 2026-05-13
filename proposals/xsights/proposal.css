@@ -702,7 +702,6 @@ body.proposal { background: var(--bg); }
 
 .rates td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .rates tr:last-child td { border-bottom: 0; }
-.rates tr.is-active td { background: var(--proposal-tint); }
 
 /* ---------- Risks (static list) ------------------------------------- */
 .risks {
@@ -805,6 +804,54 @@ body.proposal { background: var(--bg); }
 .p-foot a:hover { color: var(--brand); }
 
 /* ---------- Print ---------------------------------------------------- */
+/* ---------- Pricing lead-in subtitle -------------------------------- */
+.pricing__lead {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 38rem;
+}
+
+/* ---------- Quote row mobile alignment ------------------------------ */
+.quote__row dd { text-align: right; }
+
+/* ---------- Mobile responsive refinements --------------------------- */
+@media (max-width: 560px) {
+  /* Tighten hero so the gap under "Stages" closes on small screens */
+  .p-hero { padding-bottom: 1.5rem; }
+  .p-hero__facts { gap: 0.75rem 1.5rem; padding-top: 1rem; }
+
+  /* Tier table: stack each row as a labelled card so it stops forcing
+     a wider viewport than the device. */
+  .tier-table { display: block; }
+  .tier-table thead { display: none; }
+  .tier-table tbody, .tier-table tr { display: block; }
+  .tier-table tr {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.75rem;
+    background: var(--proposal-card);
+  }
+  .tier-table td {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0.5rem 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--rule);
+    vertical-align: baseline;
+  }
+  .tier-table td:last-child { border-bottom: 0; }
+  .tier-table td::before {
+    content: attr(data-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--soft);
+    align-self: baseline;
+  }
+}
+
 @media print {
   .lock, .p-bar, .accept, .retainer__toggle, .opt__check { display: none !important; }
   .proposal-root[hidden] { display: block !important; }
