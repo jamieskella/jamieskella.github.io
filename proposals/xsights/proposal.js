@@ -321,8 +321,8 @@
     const retainerBlock = el('div', { id: 'retainer-block', class: 'retainer' },
       el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing Value')),
       el('p', { class: 'retainer__price' },
-        el('strong', null, `${data.pricing.retainer.day_equivalent}.`),
-        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer agreement reduces day rate across the engagement$2.'))
+        el('strong', null, `${data.pricing.retainer.day_equivalent}, starting after the program completes.`),
+        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Day rate during the program reflects commitment to the retainer afterwards.'))
       ),
       el('ul', { class: 'retainer__includes' },
         ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ')))
@@ -417,7 +417,7 @@
       retainer: state.retainer ? retainerMonthly : 0,
       retainerMonths: state.retainer ? months : 0,
       retainerForEngagement: state.retainer ? retainerForEngagement : 0,
-      grandThroughEngagement: state.retainer ? discountedProgram + retainerForEngagement : baseProgram
+      grandThroughEngagement: state.retainer ? discountedProgram : baseProgram
     };
   }
 
@@ -559,7 +559,7 @@
         weeks: q.totalWeeks,
         program_cost: q.programCost,
         retainer_monthly: q.retainer,
-        retainer_for_engagement: q.retainerForEngagement,
+        retainer_min_post: q.retainer ? q.retainer * 3 : 0,
         total: q.grandThroughEngagement,
         to_email: data.meta.accept_to_email
       };
