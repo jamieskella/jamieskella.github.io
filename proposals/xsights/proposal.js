@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   Skella & Co — Proposal microsite runtime
+   Skella & Co, Proposal microsite runtime
    - Decrypts payload with passphrase (AES-GCM, PBKDF2)
    - Renders proposal content
    - Wires interactive pricing, Gantt, risk flips, accept CTA
@@ -101,7 +101,7 @@
 
   // ---------- Renderers -------------------------------------------------
   function renderProposal(data) {
-    document.title = `${data.meta.title} — Skella & Co`;
+    document.title = `${data.meta.title} - Skella & Co`;
 
     root.appendChild(renderTopBar(data));
     root.appendChild(renderHero(data));
@@ -209,7 +209,7 @@
           el('article', { class: 'stage' },
             el('div', { class: 'stage__head' },
               el('div', { class: 'stage__id' }, `Stage ${s.id.slice(1)}`),
-              el('h3', { class: 'stage__name' }, s.name)
+              el('h3', { class: 'stage__name' }, s.name.replace(/\s*\u2014\s*/g, ', '))
             ),
             el('div', { class: 'stage__body' },
               el('p', null, s.summary),
@@ -266,13 +266,13 @@
       const leftPct = active ? (cursor / weeks) * 100 : 0;
 
       const row = el('div', { class: 'gantt__row' },
-        el('div', { class: 'gantt__label' }, `${s.id}. ${s.name}`),
+        el('div', { class: 'gantt__label' }, `${s.id}. ${s.name.replace(/\s*\u2014\s*/g, ', ')}`),
         el('div', { class: 'gantt__track' },
           active
             ? el('div', {
                 class: 'gantt__bar',
                 style: `left:${leftPct}%; width:${widthPct}%`,
-                title: `${s.name} — ${w} weeks`
+                title: `${s.name.replace(/\s*\u2014\s*/g, ', ')}, ${w} weeks`
               }, `${w} wk`)
             : el('div', { class: 'gantt__bar gantt__bar--inactive', style: 'left:0; width:100%' }, 'not in scope')
         )
@@ -326,7 +326,7 @@
         el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Program + retainer reduces day rate to $$$1 across the engagement$2.'))
       ),
       el('ul', { class: 'retainer__includes' },
-        ...data.pricing.retainer.includes.map(i => el('li', null, i))
+        ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ')))
       ),
       el('p', { class: 'retainer__value' }, data.pricing.retainer.value_line)
     );
@@ -501,7 +501,7 @@
     } else if (value instanceof Node) {
       row.appendChild(el('dd', null, value));
     } else {
-      // value may include HTML strike-through text — render raw
+      // value may include HTML strike-through text, render raw
       const dd = el('dd', null);
       dd.innerHTML = value;
       row.appendChild(dd);
@@ -569,7 +569,7 @@
           body: JSON.stringify(payload)
         });
         if (!res.ok) throw new Error('relay-failed');
-        msg.textContent = 'Thanks — Jamie has been notified and will be in touch shortly.';
+        msg.textContent = 'Thanks, Jamie has been notified and will be in touch shortly.';
         msg.classList.add('is-ok');
       } catch (e) {
         // Fall back to mailto:
@@ -591,13 +591,13 @@
 
   function buildMailto(data, p) {
     const to = data.meta.accept_to_email;
-    const subj = encodeURIComponent(`${data.meta.client} — accepting proposal (${p.option_id || ''})`);
+    const subj = encodeURIComponent(`${data.meta.client}, accepting proposal (${p.option_id || ''})`);
     const lines = [
       `Hi Jamie,`,
       ``,
       `We're moving forward with the proposal.`,
       ``,
-      `Selected: Option ${p.option_id || ''} — ${p.option_name || ''}`,
+      `Selected: Option ${p.option_id || ''}, ${p.option_name || ''}`,
       `Retainer: ${p.retainer ? 'yes' : 'no'}`,
       `Approx. max duration: ${p.weeks || ''} weeks`,
       ``,
