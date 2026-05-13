@@ -114,7 +114,7 @@
     main.appendChild(renderCadence(data));
     main.appendChild(renderPricing(data));
     main.appendChild(renderRisks(data));
-    main.appendChild(renderAccept(data));
+    /* Accept section removed; conversation continues out-of-band */ // main.appendChild(renderAccept(data));
     root.appendChild(main);
 
     root.appendChild(renderFooter(data));
