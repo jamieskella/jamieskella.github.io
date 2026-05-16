@@ -34,6 +34,18 @@
 
   const b64ToBuf = (b64) => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
 
+
+  // ---------- Start date helpers ---------------------------------------
+  function parseStartDate(data) {
+    var iso = (data && data.meta && data.meta.start_date_iso) || '2026-05-25';
+    var parts = iso.split('-').map(function (n) { return parseInt(n, 10); });
+    return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+  }
+  function formatStartDate(data) {
+    var d = parseStartDate(data);
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return d.getUTCDate() + ' ' + months[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+  }
   // ---------- Decryption ------------------------------------------------
   async function deriveKey(passphrase, salt, iterations) {
     const enc = new TextEncoder();
@@ -140,7 +152,7 @@
       el('dl', { class: 'p-hero__facts' },
         fact('Prepared by', data.meta.prepared_by),
         fact('Cadence', '3 days/week'),
-        fact('Start date', '25 May 2026')
+        fact('Start date', formatStartDate(data))
       )
     );
   }
@@ -287,7 +299,7 @@
       el('div', { class: 'gantt__weeks', style: `--gantt-weeks:${weeks}` },
         ...(function(){
           var out = [];
-          var start = new Date(Date.UTC(2026, 4, 25));
+          var start = parseStartDate(data);
           var totalDays = weeks * 7;
           // Anchor labels to the first of each month within range. If the program starts mid-month, also emit a label at offset 0 for the starting month, but only if it won't collide with the next first-of-month label.
           var firstDayOfStartMonth = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + 1, 1));
