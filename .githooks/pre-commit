@@ -44,7 +44,7 @@ patterns=(
   'AKIA[0-9A-Z]{16}'                               # AWS access key id
   '-----BEGIN [A-Z ]*PRIVATE KEY-----'             # any PEM private key
   'PROPOSAL_(PASSPHRASE|RELAY_URL|KEY)\s*=\s*[\"'\''][^\"'\'']+[\"'\'']'   # baked-in proposal secret
-  'passphrase\s*[:=]\s*[\"'\''][a-z]+-[a-z]+-[a-z]+[\"'\'']'               # word-word-word passphrases like harvest-galaxy-sequoia
+  'passphrase\s*[:=]\s*[\"'\''][a-z]+-[a-z]+-[a-z]+[\"'\'']'               # three-word hyphenated passphrases
 )
 
 hit=0

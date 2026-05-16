@@ -158,7 +158,7 @@
       el('div', { class: 'p-prose' },
         el('p', null, data.overview.intro),
         el('p', null, data.overview.cadence),
-        el('p', null, data.overview.deliverable_scope.replace(/Deliverables include(?! but aren)/, "Deliverables include but aren't limited to")),
+        el('p', null, data.overview.deliverable_scope),
         el('p', null, data.overview.responsibility)
       )
     );
@@ -191,7 +191,7 @@
           ...m.tiers.map(t =>
             el('tr', null,
               el('td', { 'data-label': 'Tier' }, t.tier),
-              el('td', { 'data-label': 'Mode' }, t.mode.replace(/structured conduit interviews/g, 'structured conduit feedback loops')),
+              el('td', { 'data-label': 'Mode' }, t.mode),
               el('td', { 'data-label': 'Confidence' }, t.confidence),
               el('td', { 'data-label': 'Cost' }, t.cost)
             )
@@ -209,10 +209,10 @@
           el('article', { class: 'stage' },
             el('div', { class: 'stage__head' },
               el('div', { class: 'stage__id' }, `Stage ${s.id.slice(1)}`),
-              el('h3', { class: 'stage__name' }, s.name.replace(/\s*\u2014\s*/g, ', '))
+              el('h3', { class: 'stage__name' }, s.name)
             ),
             el('div', { class: 'stage__body' },
-              el('p', null, s.summary.replace(/Domain immersion via Michelle\./g, 'Domain immersion via Michelle, team, and any external resources available.').replace(/Conduit interviews across the three archetypes \(frontline, manager\/vet, business\)\./g, 'Interviews across key stakeholder archetypes.')),
+              el('p', null, s.summary),
               s.note ? el('p', { class: 'stage__note' }, s.note) : null,
               el('div', null,
                 el('div', { class: 'stage__id', style: 'margin-bottom:0.3rem' }, 'Deliverables'),
@@ -266,13 +266,13 @@
       const leftPct = active ? (cursor / weeks) * 100 : 0;
 
       const row = el('div', { class: 'gantt__row' },
-        el('div', { class: 'gantt__label' }, `${s.id}. ${s.name.replace(/\s*\u2014\s*/g, ', ').replace(/XLM\s+/g, '')}`),
+        el('div', { class: 'gantt__label' }, `${s.id}. ${s.name.replace(/XLM\s+/g, '')}`),
         el('div', { class: 'gantt__track' },
           active
             ? el('div', {
                 class: 'gantt__bar',
                 style: `left:${leftPct}%; width:${widthPct}%`,
-                title: `${s.name.replace(/\s*\u2014\s*/g, ', ')}, ${w} weeks`
+                title: `${s.name}, ${w} weeks`
               }, `${w} wk`)
             : el('div', { class: 'gantt__bar gantt__bar--inactive', style: 'left:0; width:100%' }, 'not in scope')
         )
@@ -321,7 +321,7 @@
       el('div', { class: 'principles' },
         el('div', { class: 'principle' }, el('h3', null, 'Commitment'), el('p', null, c.commitment)),
         el('div', { class: 'principle' }, el('h3', null, 'Rhythm'), el('p', null, c.rhythm)),
-        el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle.replace(/Treated as an embedded collaborator for soundboarding and research design\./g, 'Treated as an embedded collaborator for soundboarding and research design and internal testing.'))),
+        el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle)),
         el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, 'Charged via Stripe each 4 weeks in advance, standard consultancy convention.'))
       )
     );
@@ -341,14 +341,14 @@
     );
 
     const retainerBlock = el('div', { id: 'retainer-block', class: 'retainer' },
-      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name.replace(/^Ongoing Value Add$/, 'Ongoing value creation as Fractional Chief Experience Officer function')),
+      el('h3', { class: 'retainer__title' }, data.pricing.retainer.name),
       el('p', { class: 'retainer__explainer' }, 'A part-time executive engagement focused on the experience layer of your product, available to you and the team on a defined cadence.'),
       el('p', { class: 'retainer__price' },
         el('span', { class: 'retainer__line' }, `${data.pricing.retainer.day_equivalent}, starting after the program completes.`),
-        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note.replace(/^Adding the retainer triggers the lower long-program day rate of \$([\d,]+) across the engagement([^.]*)\.?/, 'Discounted day rate during the program reflects commitment to the Fractional CXO engagement afterwards.'))
+        el('small', null, 'Billed ' + data.pricing.retainer.billed + ' via Stripe. ' + data.pricing.retainer.discount_note)
       ),
       el('ul', { class: 'retainer__includes' },
-        ...data.pricing.retainer.includes.map(i => el('li', null, i.replace(/\s*\u2014\s*/g, ', ').replace(/^Monthly analytics-driven recommendations from Pendo session insights\.?$/, 'Ongoing analysis and analytics-driven recommendations from Pendo session insights.').replace(/^Direct access for Michelle and the dev team on design questions, unblocks, and rapid critiques\.?$/, 'Direct access for stakeholders and the dev team on design questions, unblocks, and rapid critiques.')))
+        ...data.pricing.retainer.includes.map(i => el('li', null, i))
       ),
       el('p', { class: 'retainer__value' }, data.pricing.retainer.value_line)
     );
@@ -360,7 +360,7 @@
       )),
       el('tbody', null,
         ...data.pricing.day_rates.map(r => el('tr', null,
-          el('td', null, r.shape.replace(/^Long program \(9\+ months\) or program with retainer attached$/, 'Long program (9+ months) or Program with Fractional CXO continuation')),
+          el('td', null, r.shape),
           el('td', { style: 'text-align: right' }, fmtAUD(r.rate))
         ))
       )
@@ -552,7 +552,7 @@
         ...data.risks.map((r) =>
           el('li', { class: 'risk' },
             el('p', { class: 'risk__title' }, r.risk),
-            el('p', { class: 'risk__body' }, r.mitigation.replace(/Retainer provides/g, 'Fractional CXO engagement provides').replace(/Retainer covers/g, 'Fractional CXO engagement covers'))
+            el('p', { class: 'risk__body' }, r.mitigation)
           )
         )
       )
