@@ -1,0 +1,13 @@
+# Never commit plaintext proposal source. Plaintext lives in the skella-proposals
+# skill workspace at ~/workspace/skills/user/skella-proposals/proposals/<slug>.json.
+# Only the encrypted ciphertext + salt + iv (in proposals/<slug>/index.html) is safe.
+proposals/*.json
+proposals/**/*.json
+
+# Local dev artefacts
+.DS_Store
+*.log
+.env
+.env.*
+node_modules/
+.vercel/

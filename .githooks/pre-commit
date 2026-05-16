@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# Pre-commit guard for jamieskella.github.io
+# Refuses to commit files that look like they contain secrets, plaintext
+# proposal sources, decryption keys, or relay URLs.
+#
+# Activate once per clone with:
+#   git config core.hooksPath .githooks
+
+set -e
+
+red()   { printf '\033[31m%s\033[0m\n' "$*" >&2; }
+green() { printf '\033[32m%s\033[0m\n' "$*" >&2; }
+
+# 1. Block any staged plaintext proposal source JSON.
+plain_json=$(git diff --cached --name-only --diff-filter=AM | grep -E '^proposals/.*\.json$' || true)
+if [ -n "$plain_json" ]; then
+  red "Refusing to commit plaintext proposal JSON (these contain client copy and"
+  red "must stay out of the public repo):"
+  printf '  %s\n' $plain_json >&2
+  red "Move the file to ~/workspace/skills/user/skella-proposals/proposals/ and"
+  red "rebuild with build_proposal.py to produce ciphertext only."
+  exit 1
+fi
+
+# 2. Scan staged text content for secret-like patterns.
+staged=$(git diff --cached --name-only --diff-filter=AM | grep -vE '\.(png|jpg|jpeg|gif|webp|woff2?|ttf|otf|ico|pdf|mp4|mov|zip)$' || true)
+if [ -z "$staged" ]; then
+  exit 0
+fi
+
+# Patterns deliberately tight to avoid noise. Each must include something only a
+# real secret would have (concrete prefix + length, or assignment to a literal).
+patterns=(
+  'sk_live_[0-9A-Za-z]{16,}'                       # Stripe live secret key
+  'sk_test_[0-9A-Za-z]{16,}'                       # Stripe test secret key
+  'rk_live_[0-9A-Za-z]{16,}'                       # Stripe restricted key
+  'whsec_[0-9A-Za-z]{16,}'                         # Stripe webhook secret
+  're_[0-9A-Za-z_-]{20,}'                          # Resend API key
+  'ghp_[0-9A-Za-z]{30,}'                           # GitHub personal access token
+  'gho_[0-9A-Za-z]{30,}'                           # GitHub OAuth token
+  'ghs_[0-9A-Za-z]{30,}'                           # GitHub app server token
+  'xox[abprs]-[0-9A-Za-z-]{10,}'                   # Slack token
+  'AIza[0-9A-Za-z_-]{30,}'                         # Google API key
+  'AKIA[0-9A-Z]{16}'                               # AWS access key id
+  '-----BEGIN [A-Z ]*PRIVATE KEY-----'             # any PEM private key
+  'PROPOSAL_(PASSPHRASE|RELAY_URL|KEY)\s*=\s*[\"'\''][^\"'\'']+[\"'\'']'   # baked-in proposal secret
+  'passphrase\s*[:=]\s*[\"'\''][a-z]+-[a-z]+-[a-z]+[\"'\'']'               # word-word-word passphrases like harvest-galaxy-sequoia
+)
+
+hit=0
+for f in $staged; do
+  # Skip deleted files.
+  [ -f "$f" ] || continue
+  # Diff staged content; check additions only.
+  added=$(git diff --cached --unified=0 -- "$f" | grep -E '^\+' | grep -vE '^\+\+\+ ' || true)
+  [ -z "$added" ] && continue
+  for p in "${patterns[@]}"; do
+    if echo "$added" | grep -E -q -e "$p"; then
+      red "Possible secret in $f matching /$p/"
+      hit=1
+    fi
+  done
+done
+
+if [ "$hit" -eq 1 ]; then
+  red "Commit aborted. If this is a false positive, remove the line, then commit"
+  red "with --no-verify only if you are certain it is safe."
+  exit 1
+fi
+
+green "pre-commit: no secret patterns detected."
+exit 0
