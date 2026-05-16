@@ -321,7 +321,7 @@
       el('div', { class: 'principles' },
         el('div', { class: 'principle' }, el('h3', null, 'Commitment'), el('p', null, c.commitment)),
         el('div', { class: 'principle' }, el('h3', null, 'Rhythm'), el('p', null, c.rhythm)),
-        el('div', { class: 'principle' }, el('h3', null, 'Michelle'), el('p', null, c.michelle)),
+        el('div', { class: 'principle' }, el('h3', null, (data.meta && (data.meta.prepared_for || data.meta.client)) || 'Counterpart'), el('p', null, c.counterpart)),
         el('div', { class: 'principle' }, el('h3', null, 'Billing'), el('p', null, 'Charged via Stripe each 4 weeks in advance, standard consultancy convention.'))
       )
     );
